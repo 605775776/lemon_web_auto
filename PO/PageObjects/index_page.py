@@ -20,6 +20,12 @@ class IndexPage:
         else:
             return True
 
-    # 点击第二个标去投资
+    # 点击第1个标去投资
     def click_first_bid(self):
-        pass
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
+        self.driver.find_element(*loc.bid_button).click()
+
+    # 点击第2个标去投资
+    def click_second_bid(self):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
+        self.driver.find_element(*loc.bid_button_2).click()

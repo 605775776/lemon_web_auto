@@ -11,6 +11,6 @@ class IndexPageLocs:
     user_link = (By.XPATH, '//a[@href="/Member/index.html"]')
 
     # 投标按钮 默认第一个
-    # bid_button = (By.XPATH, "//a[@class='btn btn-special']")
+    bid_button = (By.XPATH, "//a[@class='btn btn-special']")
     # 第二个 找到分支 或者用find_elements找到全部再用下标
-    bid_button = (By.XPATH, '//div[@class="b-unit"][2]//a[text()="抢投标"]')
+    bid_button_2 = (By.XPATH, '//div[@class="b-unit"][2]//a[text()="抢投标"]')
