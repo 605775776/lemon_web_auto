@@ -5,6 +5,7 @@ from PO.PageObjects.login_page import LoginPage as lp
 from PO.PageObjects.bid_page import BidPage
 from PO.PageObjects.index_page import IndexPage as ip
 from PO.PageObjects.user_page import UserPage
+import time
 
 
 
@@ -25,11 +26,12 @@ class TestInvest(unittest.TestCase):
 
     # 投资成功2000 看余额变化及标的变化
     def test_invest_success(self):
-        ip(self.driver).click_first_bid()
+        ip(self.driver).click_second_bid()
+        bid_money = 8000
         bp = BidPage(self.driver)
         user_money_before_invest = bp.get_user_money()
         bid_money_before_invest = bp.get_bid_money()
-        bp.invest(2000)
+        bp.invest(bid_money)
         bp.click_success_button()
 
 
@@ -37,12 +39,37 @@ class TestInvest(unittest.TestCase):
         user_money_after_invest = UserPage(self.driver).get_user_money()
         print(user_money_before_invest)
         user_money_compare = int(float(user_money_before_invest) - float(user_money_after_invest))
-        self.assertEqual(user_money_compare, 2000)
+        self.assertEqual(user_money_compare, bid_money)
         self.driver.back()
         self.driver.refresh()
         bid_money_after_invest = bp.get_bid_money()
         bid_money_compare = int(float(bid_money_before_invest) - float(bid_money_after_invest))
-        self.assertEqual(bid_money_compare, 2000)
+        self.assertEqual(bid_money_compare, bid_money)
+
+    def test_invest_failed_01(self):
+        ip(self.driver).click_second_bid()
+        bp = BidPage(self.driver)
+        user_money_before_invest = bp.get_user_money()
+        bid_money_before_invest = bp.get_bid_money()
+
+
+        bid_money = (int(float(user_money_before_invest)))*100
+        bp.invest(bid_money)
+        self.assertEqual(bp.invest_failed_01(), "投标金额大于可用金额")
+
+
+    def test_invest_failed_02(self):
+        ip(self.driver).click_third_bid()
+        bp = BidPage(self.driver)
+        bid_money_before_invest = bp.get_bid_money()
+        print(bid_money_before_invest)
+        bid_money = (int(float(bid_money_before_invest))+1) * 10000
+        print(bid_money)
+        bp.invest(bid_money)
+        self.assertEqual(bp.invest_failed_02(), "购买标的金额不能大于标总金额")
+
+
+
 
         """ 
         首页 选标

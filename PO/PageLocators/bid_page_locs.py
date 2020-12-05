@@ -19,7 +19,7 @@ class BidPageLocs:
     active_button_on_successPop = (By.XPATH, '//div[@class="layui-layer-content"]//button')
 
     # 投资失败 - 弹出框-提示信息
-    invest_failed_popup = (By.XPATH, '//div[@class="text-center"]')
+    invest_failed = (By.XPATH, '//div[@class="text-center"]')
 
     # 投资失败-弹出框-关闭弹出框
     invest_close_failed_popup_button = (By.XPATH, '//div[contains(@class, "layui-layer-dialog")]//a')

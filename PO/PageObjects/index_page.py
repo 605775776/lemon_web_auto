@@ -29,3 +29,8 @@ class IndexPage:
     def click_second_bid(self):
         WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
         self.driver.find_element(*loc.bid_button_2).click()
+
+    # 点击第3个标去投资
+    def click_third_bid(self):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
+        self.driver.find_element(*loc.bid_button_3).click()

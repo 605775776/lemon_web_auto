@@ -21,7 +21,7 @@ class BidPage:
         WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(loc.bid_money_text))
         return self.driver.find_element(*loc.bid_money_text).text
 
-    # 输入金额2000 并投标
+    # 输入金额   并投标
     def invest(self, invest_money):
         WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(loc.money_input))
         self.driver.find_element(*loc.money_input).send_keys(invest_money)
@@ -31,3 +31,14 @@ class BidPage:
     def click_success_button(self):
         WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(loc.active_button_on_successPop))
         self.driver.find_element(*loc.active_button_on_successPop).click()
+
+    # 投标失败1 输入金额大于用户金额 弹出信息
+    def invest_failed_01(self):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(loc.invest_failed))
+        return self.driver.find_element(*loc.invest_failed).text
+
+
+    # 投资失败2 投标金额大于标的可投金额 弹出信息
+    def invest_failed_02(self):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(loc.invest_failed))
+        return self.driver.find_element(*loc.invest_failed).text
