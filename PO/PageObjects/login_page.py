@@ -1,20 +1,24 @@
-from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 from PO.PageLocators.login_page_locs import LoginPageLocs as loc
+from PO.Common.basepage import BasePage
 
 
-class LoginPage:
+class LoginPage(BasePage):
 
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
-
-    def login(self, username, password):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc.login_button))
-        self.driver.find_element(*loc.user_input).send_keys(username)
-        self.driver.find_element(*loc.pwd_input).send_keys(password)
-        self.driver.find_element(*loc.login_button).click()
+    def login(self, username, password, validateCode):
+        self.input_text(loc.user_input, username, "登录页面_输入用户名")
+        self.input_text(loc.pwd_input, password, "登录页面_输入密码")
+        self.input_text(loc.validateCode_input, validateCode, "登录页面_输入密码")
+        self.click_element(loc.login_button, "登录页面_点击登录按钮")
 
     def msg_from_login_form(self):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc.error_msg))
-        return self.driver.find_element(*loc.error_msg).text
+        self.wait_ele_visible(loc.msg_from_login_form, "登录页面-等待登录表单的错误提示元素")
+        eles = self.get_elements(loc.msg_from_login_form, "登录页面-获取登录表单的错误提示元素")
+
+        if len(eles) == 1:
+            return eles[0].text
+        elif len(eles) > 1:
+            text_list =[]
+            for el in eles:
+                text_list.append(el.text)
+            return text_list
