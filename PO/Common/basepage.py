@@ -2,7 +2,8 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
-
+import time
+from PO.Common.setting import Config
 
 class BasePage:
 
@@ -48,9 +49,11 @@ class BasePage:
         # 存储图片
         # 命名规范 页面名称_页面行为_时间.png
         # 文件完整名称 = Outputs的screenshots+页面名称_页面行为_时间.png
-        file_name = "{}_{}.png".format(img_name, "当前时间")
-        self.driver.save_screenshot("图片存储路径" + img_name)
-        logging.info("页面图片保存在：{}".format("图片存储路径" + img_name))
+        now = time.strftime("%Y-%m-%d %H_%M_%S")
+        screenshot_path = Config.screenshot_dir + "/{}_{}.png".format(img_name, now)
+        # file_name = "{}_{}.png".format(img_name, "当前时间")
+        self.driver.save_screenshot(screenshot_path)
+        logging.info("页面图片保存在：{}".format(screenshot_path))
 
 
 if __name__ == '__main__':

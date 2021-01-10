@@ -15,6 +15,12 @@ class Config:
     # logger_setting_path = os.path.join(root_path, 'config/config.yaml')
     yaml_config_path = os.path.join(config_path, 'config.yaml')
 
+    # 输出文件路径
+    Outputs_path = os.path.join(root_path, 'Outputs')
+
+    # 失败截图路径
+    screenshot_dir = os.path.join(Outputs_path, 'screenshots')
+
     # 测试数据路径
     data_path = os.path.join(root_path, 'data\\test_cases.xlsx')
 
@@ -39,6 +45,6 @@ class DevConfig(Config):
 
 config = DevConfig()
 if __name__ == '__main__':
-    print(Config.root_path)
+    print(Config.screenshot_dir)
 # if __name__ == '__main__':
 #     print(Config.yaml_config_path)
