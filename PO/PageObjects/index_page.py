@@ -20,14 +20,12 @@ class IndexPage(BasePage):
 
     # 点击第1个标去投资
     def click_first_bid(self):
-        WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
-        self.driver.find_element(*loc.bid_button).click()
-
+        self.click_element(loc.bid_button, "首页-点击第一个标投资按钮")
     # 点击第2个标去投资
     def click_second_bid(self):
         WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
         self.driver.find_element(*loc.bid_button_2).click()
-
+        self.click_element(loc.bid_button, "首页-点击第一个标投资按钮")
     # 点击第3个标去投资
     def click_third_bid(self):
         WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
