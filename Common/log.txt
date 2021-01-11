@@ -1,4 +1,0 @@
-logger_handler.py-54-admin-INFO-abc
-logger_handler.py-55-admin-ERROR-error
-logger_handler.py-55-admin-INFO-»ñÈ¡ÔªËØabc
-logger_handler.py-56-admin-ERROR-error

@@ -28,9 +28,9 @@ class Config:
     case_path = os.path.join(root_path, 'test_cases')
 
     # log日志路径
-    log_path = os.path.join(root_path, 'log')
-    if not os.path.exists(log_path):
-        os.mkdir(log_path)
+    log_dir_path = os.path.join(root_path, 'log')
+    if not os.path.exists(log_dir_path):
+        os.mkdir(log_dir_path)
 
     # 测试报告路径
     report_path = os.path.join(root_path, 'report')
@@ -48,3 +48,4 @@ if __name__ == '__main__':
     print(Config.root_path)
     print(Config.Outputs_path)
     print(Config.screenshot_dir)
+    print(Config.log_path)
