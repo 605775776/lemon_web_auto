@@ -12,7 +12,6 @@ class Config:
     config_path = os.path.join(root_path, 'config')
 
     # 日志配置路径
-    # logger_setting_path = os.path.join(root_path, 'config/config.yaml')
     yaml_config_path = os.path.join(config_path, 'config.yaml')
 
     # 输出文件路径
@@ -28,7 +27,7 @@ class Config:
     case_path = os.path.join(root_path, 'test_cases')
 
     # log日志路径
-    log_path = os.path.join(root_path, 'log')
+    log_path = os.path.join(root_path, 'log\\log.txt')
     if not os.path.exists(log_path):
         os.mkdir(log_path)
 
@@ -45,6 +44,4 @@ class DevConfig(Config):
 
 config = DevConfig()
 if __name__ == '__main__':
-    print(Config.case_path)
-# if __name__ == '__main__':
-#     print(Config.yaml_config_path)
+    print(Config.log_path)

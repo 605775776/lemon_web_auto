@@ -15,7 +15,6 @@ class BasePage:
     # 等待可见
     def wait_ele_visible(self, loc, img_name, timeout=20, poll_fre=0.5):
         """
-
         :param loc:
         :param img_name:{页面名称_页面行为}
         :param timeout:
@@ -23,11 +22,9 @@ class BasePage:
         :return:
         """
         logging.info("{}等待{}元素可见".format(img_name, loc))
-        # 等待元素时长 等待开始的时间 记录下当前时间，等待结束的时间 记录下时间 求时间差
         try:
             WebDriverWait(self.driver, timeout, poll_fre).until(EC.visibility_of_element_located(loc))
         except:
-            # 失败截图-写入日志
             self.save_page_shot(img_name)
             logging.exception("等待元素可见失败：")
             raise
@@ -38,7 +35,6 @@ class BasePage:
         try:
             WebDriverWait(self.driver, timeout, poll_fre).until(EC.presence_of_element_located(loc))
         except:
-            # 失败截图-写入日志
             self.save_page_shot(img_name)
             logging.exception("页面元素不存在：")
             raise
@@ -48,7 +44,6 @@ class BasePage:
         logging.info("在{}查找元素：{}".format(img_name, loc))
         try:
             ele = self.driver.find_element(*loc)
-
         except:
             self.save_page_shot(img_name)
             logging.exception("查找元素失败")
@@ -57,12 +52,10 @@ class BasePage:
             return ele
 
     # 查找多个元素
-
     def get_elements(self, loc, img_name):
         logging.info("在{}查找所有匹配的元素：{}".format(img_name, loc))
         try:
             eles = self.driver.find_elements(*loc)
-
         except:
             self.save_page_shot(img_name)
             logging.exception("查找元素失败")
@@ -88,7 +81,6 @@ class BasePage:
         self.wait_ele_visible(loc, img_name, timeout, poll_fre)
         ele = self.get_element(loc, img_name)
         logging.info("在{}往 {}元素输入{}".format(img_name, loc, value))
-
         try:
             ele.send_keys(value)
         except:
@@ -101,7 +93,6 @@ class BasePage:
         self.wait_ele_visible(loc, img_name, timeout, poll_fre)
         ele = self.get_element(loc, img_name)
         logging.info("在{}获取{}元素的{}属性".format(img_name, loc, attr_name))
-
         try:
             value = ele.get_attribute(attr_name)
         except:
@@ -117,7 +108,6 @@ class BasePage:
         self.wait_ele_visible(loc, img_name, timeout, poll_fre)
         ele = self.get_element(loc, img_name)
         logging.info("在{}获取{}元素的文本值".format(img_name, loc))
-
         try:
             text = ele.text
         except:
@@ -134,7 +124,6 @@ class BasePage:
         # 文件完整名称 = Outputs的screenshots+页面名称_页面行为_时间.png
         now = time.strftime("%Y-%m-%d %H_%M_%S")
         screenshot_path = Config.screenshot_dir + "/{}_{}.png".format(img_name, now)
-        # file_name = "{}_{}.png".format(img_name, "当前时间")
         self.driver.save_screenshot(screenshot_path)
         logging.info("页面图片保存在：{}".format(screenshot_path))
 

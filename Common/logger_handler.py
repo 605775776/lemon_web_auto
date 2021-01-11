@@ -1,5 +1,5 @@
 import logging
-
+from Common.setting import Config
 
 class LoggerHandler(logging.Logger):
 
@@ -32,12 +32,11 @@ class LoggerHandler(logging.Logger):
         stream_handler.setFormatter(fmt)
         self.addHandler(stream_handler)
 
-    def info(self, msg):
-        super().info(msg)
-        print("我正在使用。。。")
 
+loggger = LoggerHandler(file=Config.log_path)
 
-# logger = LoggerHandler(logger_name, level, logger_file)
-# if __name__ == '__main__':
-#     logger = LoggerHandler(level='WARNING')
-#     logger.info('hello')
+if __name__ == '__main__':
+    logger = LoggerHandler(file=Config.log_path)
+    a = "abc"
+    logger.info("获取元素{}".format(a))
+    logger.error("error")
