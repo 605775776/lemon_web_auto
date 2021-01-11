@@ -11,14 +11,16 @@ class LoginPage(BasePage):
         self.input_text(loc.validateCode_input, validateCode, "登录页面_输入密码")
         self.click_element(loc.login_button, "登录页面_点击登录按钮")
 
-    def msg_from_login_form(self):
-        self.wait_ele_visible(loc.msg_from_login_form, "登录页面-等待登录表单的错误提示元素")
-        eles = self.get_elements(loc.msg_from_login_form, "登录页面-获取登录表单的错误提示元素")
-
-        if len(eles) == 1:
-            return eles[0].text
-        elif len(eles) > 1:
-            text_list =[]
-            for el in eles:
-                text_list.append(el.text)
-            return text_list
+    def get_element_entrance(self):
+        self.wait_ele_visible(loc.entrance, "登录首页-招生入口")
+    # def msg_from_login_form(self):
+    #     self.wait_ele_visible(loc.msg_from_login_form, "登录页面-等待登录表单的错误提示元素")
+    #     eles = self.get_elements(loc.msg_from_login_form, "登录页面-获取登录表单的错误提示元素")
+    #
+    #     if len(eles) == 1:
+    #         return eles[0].text
+    #     elif len(eles) > 1:
+    #         text_list =[]
+    #         for el in eles:
+    #             text_list.append(el.text)
+    #         return text_list

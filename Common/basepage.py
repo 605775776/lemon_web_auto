@@ -24,6 +24,7 @@ class BasePage:
         logging.info("{}等待{}元素可见".format(img_name, loc))
         try:
             WebDriverWait(self.driver, timeout, poll_fre).until(EC.visibility_of_element_located(loc))
+
         except:
             self.save_page_shot(img_name)
             logging.exception("等待元素可见失败：")
@@ -123,7 +124,8 @@ class BasePage:
         # 命名规范 页面名称_页面行为_时间.png
         # 文件完整名称 = Outputs的screenshots+页面名称_页面行为_时间.png
         now = time.strftime("%Y-%m-%d %H_%M_%S")
-        screenshot_path = Config.screenshot_dir + "/{}_{}.png".format(img_name, now)
+        screenshot_path = Config.screenshot_dir + "\\{}_{}.png".format(img_name, now)
+        print(screenshot_path)
         self.driver.save_screenshot(screenshot_path)
         logging.info("页面图片保存在：{}".format(screenshot_path))
 

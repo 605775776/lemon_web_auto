@@ -19,7 +19,8 @@ class Config:
 
     # 失败截图路径
     screenshot_dir = os.path.join(Outputs_path, 'screenshots')
-
+    if not os.path.exists(screenshot_dir):
+        os.mkdir(screenshot_dir)
     # 测试数据路径
     data_path = os.path.join(root_path, 'data\\test_cases.xlsx')
 
@@ -27,7 +28,7 @@ class Config:
     case_path = os.path.join(root_path, 'test_cases')
 
     # log日志路径
-    log_path = os.path.join(root_path, 'log\\log.txt')
+    log_path = os.path.join(root_path, 'log')
     if not os.path.exists(log_path):
         os.mkdir(log_path)
 
@@ -44,4 +45,6 @@ class DevConfig(Config):
 
 config = DevConfig()
 if __name__ == '__main__':
-    print(Config.log_path)
+    print(Config.root_path)
+    print(Config.Outputs_path)
+    print(Config.screenshot_dir)

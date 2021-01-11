@@ -13,7 +13,8 @@ class LoginPageLocs:
     validateCode_input = (By.XPATH, "//input[@id='validateCode']")
 
     # 登录按钮
-    login_button = (By.TAG_NAME, "button")
+    login_button = (By.XPATH, "//div[@class='btn btn-submit btn-block']")
 
     # 提示信息
-    error_msg = (By.XPATH, "//div[@class='form-error-info']")
+    # error_msg = (By.XPATH, "//div[@class='form-error-info']")
+    entrance = (By.XPATH, "//span[text()='招生入口']")

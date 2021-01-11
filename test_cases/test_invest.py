@@ -34,7 +34,6 @@ class TestInvest(unittest.TestCase):
 
         # 个人页面
         user_money_after_invest = UserPage(self.driver).get_user_money()
-        print(user_money_before_invest)
         user_money_compare = int(float(user_money_before_invest) - float(user_money_after_invest))
         self.assertEqual(user_money_compare, bid_money)
         self.driver.back()

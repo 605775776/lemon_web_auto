@@ -1,7 +1,7 @@
 # url
-base_url = "http://120.78.128.25:8765"
+base_url = "https://newerp.test.klxuexi.net"
 # 登录地址
-login_url = base_url + "/Index/login.html"
+login_url = base_url + "/home"
 # 业务分成
 
 # 账号
