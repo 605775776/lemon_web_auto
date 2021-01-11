@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
 import time
-from PO.Common.setting import Config
+from Common.setting import Config
 
 
 # 记录日志/失败截图+错误信息输出+抛出异常

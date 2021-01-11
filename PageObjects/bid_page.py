@@ -1,6 +1,5 @@
-from PO.PageLocators.index_page_locs import IndexPageLocs as loc
-from PO.PageLocators.bid_page_locs import BidPageLocs as loc
-from PO.Common.basepage import BasePage
+from PageLocators.bid_page_locs import BidPageLocs as loc
+from Common.basepage import BasePage
 
 
 class BidPage(BasePage):

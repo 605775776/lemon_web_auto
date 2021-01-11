@@ -1,8 +1,8 @@
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from PO.PageLocators.index_page_locs import IndexPageLocs as loc
-from PO.Common.basepage import BasePage
+from PageLocators.index_page_locs import IndexPageLocs as loc
+from Common.basepage import BasePage
 
 class IndexPage(BasePage):
 

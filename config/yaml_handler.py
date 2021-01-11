@@ -1,5 +1,5 @@
 import yaml
-from PO.Common.setting import Config
+from Common.setting import Config
 
 
 class YamlHandler:

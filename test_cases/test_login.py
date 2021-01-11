@@ -1,9 +1,9 @@
 import unittest
-from PO.PageObjects.login_page import LoginPage
-from PO.PageObjects.index_page import IndexPage
+from PageObjects.login_page import LoginPage
+from PageObjects.index_page import IndexPage
 from selenium import webdriver
-from PO.test_data import Global_Datas as GD
-from PO.test_data import login_datas as lds
+from test_data import Global_Datas as GD
+from test_data import login_datas as lds
 import time
 import ddt
 

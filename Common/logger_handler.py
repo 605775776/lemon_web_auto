@@ -1,7 +1,6 @@
 import logging
 
 
-
 class LoggerHandler(logging.Logger):
 
     def __init__(self,

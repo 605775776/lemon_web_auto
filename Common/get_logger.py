@@ -1,5 +1,5 @@
-from PO.Common.logger_handler import LoggerHandler
-from PO.config.yaml_handler import yaml_data
+from Common.logger_handler import LoggerHandler
+from config.yaml_handler import yaml_data
 
 
 class Mylogger(LoggerHandler):

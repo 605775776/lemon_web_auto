@@ -1,6 +1,6 @@
 
-from PO.PageLocators.login_page_locs import LoginPageLocs as loc
-from PO.Common.basepage import BasePage
+from PageLocators.login_page_locs import LoginPageLocs as loc
+from Common.basepage import BasePage
 
 
 class LoginPage(BasePage):

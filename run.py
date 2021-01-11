@@ -1,8 +1,8 @@
 import unittest
 import os
 from datetime import datetime
-from PO.Common.HwTestReport import HTMLTestReport
-from PO.Common.setting import Config
+from Common.HwTestReport import HTMLTestReport
+from Common.setting import Config
 
 # 1 初始化testloader
 testloader = unittest.TestLoader()
