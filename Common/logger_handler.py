@@ -33,17 +33,12 @@ class LoggerHandler(logging.Logger):
         self.addHandler(stream_handler)
 
 
-# now = time.strftime("%Y-%m-%d %H:%M:%S")
-# file = Config.log_dir_path +'\log_{}.txt'.format(now)
-# logger = LoggerHandler(file=file)
+now = time.strftime("%Y-%m-%d %H-%M-%S")
+file = Config.log_dir_path +'\log_{}.txt'.format(now)
+logger = LoggerHandler(file=file)
 
-if __name__ == '__main__':
-    # logger = LoggerHandler(file=file)
-    # a = "abc"
-    # logger.info("获取元素{}".format(a))
-    # logger.error("error")
-
-    import time
-
-    now = time.strftime("%Y-%m-%d %H:%M:%S")
-    print('当前时间格式化：{}'.format(now))
+# if __name__ == '__main__':
+#     logger = LoggerHandler(file=file)
+#     a = "abc"
+#     logger.info("获取元素{}".format(a))
+#     logger.error("error")

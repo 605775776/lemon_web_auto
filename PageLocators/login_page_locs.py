@@ -18,3 +18,6 @@ class LoginPageLocs:
     # 提示信息
     # error_msg = (By.XPATH, "//div[@class='form-error-info']")
     entrance = (By.XPATH, "//span[text()='招生入口']")
+
+if __name__ == '__main__':
+    print(LoginPageLocs.entrance)
