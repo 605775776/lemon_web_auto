@@ -45,6 +45,6 @@ class DevConfig(Config):
 
 config = DevConfig()
 if __name__ == '__main__':
-    print(Config.screenshot_dir)
+    print(Config.case_path)
 # if __name__ == '__main__':
 #     print(Config.yaml_config_path)

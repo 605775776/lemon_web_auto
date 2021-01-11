@@ -1,6 +1,6 @@
 import unittest
 from selenium import webdriver
-from PO.TestDatas import Global_Datas as GD
+from PO.test_data import Global_Datas as GD
 from PO.PageObjects.login_page import LoginPage as lp
 from PO.PageObjects.bid_page import BidPage
 from PO.PageObjects.index_page import IndexPage as ip
