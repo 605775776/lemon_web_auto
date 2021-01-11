@@ -6,7 +6,7 @@ class IndexPageLocs:
     # exit_link = (By.XPATH, "//a[text()='退出']")
 
     # 招生入口元素
-    entrance = (By.XPATH, "//span[text()='招生入口1']")
+    entrance = (By.XPATH, "//span[text()='招生入口']")
 
     # # 关于我们
     # about_us = (By.XPATH, '//a[text()="关于我们"]')

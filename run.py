@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from Common.HwTestReport import HTMLTestReport
 from Common.setting import Config
+from test_cases import test_login
 
 # 1 初始化testloader
 testloader = unittest.TestLoader()
@@ -11,7 +12,7 @@ testloader = unittest.TestLoader()
 dir_path = os.path.dirname(os.path.abspath(__file__))
 case_path = os.path.join(dir_path, 'test_cases')
 # 加载多个模块测试用例 保存到测试套件中
-suite = testloader.loadTestsFromModule()
+suite = testloader.loadTestsFromModule(test_login)
 # suite2 = testloader.loadTestsFromModule(test_login)
 
 # 添加指定的测试类 快捷键alt+enter

@@ -1,0 +1,13 @@
+basepage.py-24-admin-INFO-登录页面_输入用户名等待('xpath', "//input[@id='username']")元素可见
+basepage.py-45-admin-INFO-在登录页面_输入用户名查找元素：('xpath', "//input[@id='username']")
+basepage.py-84-admin-INFO-在登录页面_输入用户名往 ('xpath', "//input[@id='username']")元素输入dswen
+basepage.py-24-admin-INFO-登录页面_输入密码等待('xpath', "//input[@id='password']")元素可见
+basepage.py-45-admin-INFO-在登录页面_输入密码查找元素：('xpath', "//input[@id='password']")
+basepage.py-84-admin-INFO-在登录页面_输入密码往 ('xpath', "//input[@id='password']")元素输入987858dsw
+basepage.py-24-admin-INFO-登录页面_输入密码等待('xpath', "//input[@id='validateCode']")元素可见
+basepage.py-45-admin-INFO-在登录页面_输入密码查找元素：('xpath', "//input[@id='validateCode']")
+basepage.py-84-admin-INFO-在登录页面_输入密码往 ('xpath', "//input[@id='validateCode']")元素输入1278
+basepage.py-24-admin-INFO-登录页面_点击登录按钮等待('xpath', "//div[@class='btn btn-submit btn-block']")元素可见
+basepage.py-45-admin-INFO-在登录页面_点击登录按钮查找元素：('xpath', "//div[@class='btn btn-submit btn-block']")
+basepage.py-71-admin-INFO-在登录页面_点击登录按钮点击 ('xpath', "//div[@class='btn btn-submit btn-block']")元素
+basepage.py-24-admin-INFO-登录首页-招生入口等待('xpath', "//span[text()='招生入口']")元素可见
