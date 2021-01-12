@@ -1,0 +1,7 @@
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+Logs/*
+Browser/__pycache__
+.idea/*

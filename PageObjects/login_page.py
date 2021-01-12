@@ -6,13 +6,13 @@ from Common.basepage import BasePage
 class LoginPage(BasePage):
 
     def login(self, username, password, validateCode):
-        self.input_text(loc.user_input, username, ('user_input',"登录页面_输入用户名"))
-        self.input_text(loc.pwd_input, password, "登录页面_输入密码")
-        self.input_text(loc.validateCode_input, validateCode, "登录页面_输入密码")
-        self.click_element(loc.login_button, "登录页面_点击登录按钮")
+        self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
+        self.input_text(loc.pwd_input, password, ("登录页面_输入密码", 'pwd_input'))
+        self.input_text(loc.validateCode_input, validateCode, ( "登录页面_输入密码", 'validateCode_input'))
+        self.click_element(loc.login_button, ("登录页面_点击登录按钮", 'login_button'))
 
-    def get_element_entrance(self):
-        self.wait_ele_visible(loc.entrance, "登录首页-招生入口")
+    # def get_element_entrance(self):
+    #     self.wait_ele_visible(loc.entrance, ("登录首页-招生入口", 'entrance'))
     # def msg_from_login_form(self):
     #     self.wait_ele_visible(loc.msg_from_login_form, "登录页面-等待登录表单的错误提示元素")
     #     eles = self.get_elements(loc.msg_from_login_form, "登录页面-获取登录表单的错误提示元素")

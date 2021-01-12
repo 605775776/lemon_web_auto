@@ -18,14 +18,13 @@ class IndexPageLocs:
     branch_resource = (By.XPATH, "//span[text()='校区资源']")
 
     # 资源转移
-    branch_resource = (By.XPATH, "//span[text()='资源转移']")
+    resource_transfer = (By.XPATH, "//span[text()='资源转移']")
 
     # 资源解绑
-    branch_resource = (By.XPATH, "//span[text()='资源解绑']")
+    resource_unbind = (By.XPATH, "//span[text()='资源解绑']")
 
     # 约访管理
-    branch_resource = (By.XPATH, "//span[text()='约访管理']")
-
+    appointment_manage = (By.XPATH, "//span[text()='约访管理']")
 
     # 我的资源-运营部
     operation_depart = (By.XPATH, "//div[@id='tab-1']")

@@ -6,7 +6,9 @@ class IndexPage(BasePage):
 
     # # 获取元素-招生入口
     def get_element_entrance(self):
-        self.wait_ele_visible(loc.entrance, "登录首页-招生入口")
+        self.wait_ele_visible(loc.entrance, ("CRM首页-招生入口", 'entrance'))
+
+
 
     #
     # def get_element(self, loc, img_name):
