@@ -8,6 +8,40 @@ class IndexPageLocs:
     # 招生入口元素
     entrance = (By.XPATH, "//span[text()='招生入口']")
 
+    # 我的资源
+    my_resource = (By.XPATH, "//span[text()='我的资源']")
+
+    # 部门资源
+    department_resource = (By.XPATH, "//span[text()='部门资源']")
+
+    # 校区资源
+    branch_resource = (By.XPATH, "//span[text()='校区资源']")
+
+    # 资源转移
+    branch_resource = (By.XPATH, "//span[text()='资源转移']")
+
+    # 资源解绑
+    branch_resource = (By.XPATH, "//span[text()='资源解绑']")
+
+    # 约访管理
+    branch_resource = (By.XPATH, "//span[text()='约访管理']")
+
+
+    # 我的资源-运营部
+    operation_depart = (By.XPATH, "//div[@id='tab-1']")
+
+    # 我的资源-学科部
+    subject_depart = (By.XPATH, "//div[@id='tab-2']")
+
+    # 我的资源-市场部
+    market_depart = (By.XPATH, "//div[@id='tab-3']")
+    #
+
+
+
+
+
+
     # # 关于我们
     # about_us = (By.XPATH, '//a[text()="关于我们"]')
     # # 用户昵称

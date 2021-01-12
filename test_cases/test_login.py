@@ -18,6 +18,8 @@ class test_login(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get(GD.login_url)
         self.driver.maximize_window()
+        LoginPage(self.driver).login(*lds.success)
+        IndexPage(self.driver).get_element_entrance()
 
     def tearDown(self):
         self.driver.quit()
