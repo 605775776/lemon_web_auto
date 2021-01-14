@@ -129,6 +129,21 @@ class BasePage:
         self.driver.save_screenshot(screenshot_path)
         logger.info("页面图片保存在：{}".format(screenshot_path))
 
+    # 切换到新的窗口
+    # iframe切换
+    # alert切换
+    # js执行 js语句 参数
+    # 滚动条
+    # 上传windows
+    def switch_to_iframe(self, loc):
+        # 等待
+        try:
+            WebDriverWait(self.driver, 20).until(EC.frame_to_be_available_and_switch_to_it(loc))
+        except:
+            pass
+
+
+
 
 if __name__ == '__main__':
     pass
