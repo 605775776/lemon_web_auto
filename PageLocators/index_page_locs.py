@@ -26,20 +26,9 @@ class IndexPageLocs:
     # 约访管理
     appointment_manage = (By.XPATH, "//span[text()='约访管理']")
 
-    # 我的资源-运营部
-    operation_depart = (By.XPATH, "//div[@id='tab-1']")
 
-    # 我的资源-学科部
-    subject_depart = (By.XPATH, "//div[@id='tab-2']")
 
-    # 我的资源-市场部
-    market_depart = (By.XPATH, "//div[@id='tab-3']")
 
-    # 我的资源-添加资源
-    add_resource = (By.XPATH, "//span[text()='添加资源']")
-
-    # 我的资源-导出
-    export = (By.XPATH, "//span[text()='导出']")
 
 
 

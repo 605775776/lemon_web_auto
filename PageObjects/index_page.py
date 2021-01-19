@@ -9,9 +9,6 @@ class IndexPage(BasePage):
     def add_my_resource(self):
         self.click_element(loc.entrance, ("首页-点击招生入口", "entrance"))
         self.click_element(loc.my_resource, ("首页-点击我的资源", "my_resource"))
-        self.click_element(loc.)
+        self.click_element(loc.add_resource, ("首页-添加资源", "add_resource"))
 
-        self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
-        self.input_text(loc.pwd_input, password, ("登录页面_输入密码", 'pwd_input'))
-        self.input_text(loc.validateCode_input, validateCode, ( "登录页面_输入密码", 'validateCode_input'))
-        self.click_element(loc.login_button, ("登录页面_点击登录按钮", 'login_button'))
+

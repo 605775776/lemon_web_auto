@@ -29,6 +29,6 @@ class test_login(unittest.TestCase):
 
     def test_login_success(self):
         LoginPage(self.driver).login(*lds.success)
-        IndexPage(self.driver).get_element_entrance()
+
 
 
