@@ -4,35 +4,14 @@ from Common.basepage import BasePage
 
 class IndexPage(BasePage):
 
-    # # 获取元素-招生入口
-    def get_element_entrance(self):
-        self.wait_ele_visible(loc.entrance, ("CRM首页-招生入口", 'entrance'))
 
+    # 我的资源-添加资源
+    def add_my_resource(self):
+        self.click_element(loc.entrance, ("首页-点击招生入口", "entrance"))
+        self.click_element(loc.my_resource, ("首页-点击我的资源", "my_resource"))
+        self.click_element(loc.)
 
-
-    #
-    # def get_element(self, loc, img_name):
-    #     pass
-    # def get_element_exists(self):
-    #     pass
-    #     # try:
-    #     #     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(loc.exit_link))
-    #     #     # return True
-    #     # except:
-    #     #     return False
-    #     #
-    #     # else:
-    #     #     return True
-    #
-    # # 点击第1个标去投资
-    # def click_first_bid(self):
-    #     self.click_element(loc.bid_button, "首页-点击第一个标投资按钮")
-    # # 点击第2个标去投资
-    # def click_second_bid(self):
-    #     WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
-    #     self.driver.find_element(*loc.bid_button_2).click()
-    #     self.click_element(loc.bid_button, "首页-点击第一个标投资按钮")
-    # # 点击第3个标去投资
-    # def click_third_bid(self):
-    #     WebDriverWait(self.driver, 20).until(EC.visibility_of_all_elements_located(loc.bid_button))
-    #     self.driver.find_element(*loc.bid_button_3).click()
+        self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
+        self.input_text(loc.pwd_input, password, ("登录页面_输入密码", 'pwd_input'))
+        self.input_text(loc.validateCode_input, validateCode, ( "登录页面_输入密码", 'validateCode_input'))
+        self.click_element(loc.login_button, ("登录页面_点击登录按钮", 'login_button'))
