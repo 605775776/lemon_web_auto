@@ -38,3 +38,15 @@ class AddAppointmentPageLocs:
 
     # 需求支持-自定义
     custom_support = (By.XPATH, "//input[@placeholder='请自定义需求支持']")
+
+    # 补充说明
+    remark = (By.XPATH, "//textarea")
+
+    # 确定按钮
+    confirm = (By.XPATH, "//span[text()='确 定']")
+
+    # 取消按钮
+    cancel = (By.XPATH, "//span[text()='取 消']")
+
+    # 预约访右上角关闭窗口
+    close_iframe = (By.XPATH, "//span[text()='预约访']/..//i")
