@@ -64,15 +64,3 @@ class TestInvest(unittest.TestCase):
         bp.invest(bid_money)
         self.assertEqual(bp.invest_failed_02(), "购买标的金额不能大于标总金额")
 
-
-
-
-        """ 
-        首页 选标
-        标页面 获取金额
-        输入2000 投标
-        标页面投标成功 点击 按钮
-        1、是否少了2000
-        2、标的余额是否少了2000
-        
-        """
