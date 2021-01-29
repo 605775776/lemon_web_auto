@@ -26,6 +26,8 @@ class IndexPageLocs:
     # 约访管理
     appointment_manage = (By.XPATH, "//span[text()='约访管理']")
 
+    # 添加资源
+    add_resource = (By.XPATH, "//button//span[text()='添加资源']")
 
 
 

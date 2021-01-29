@@ -11,4 +11,8 @@ class IndexPage(BasePage):
         self.click_element(loc.my_resource, ("首页-点击我的资源", "my_resource"))
         self.click_element(loc.add_resource, ("首页-添加资源", "add_resource"))
 
+    # 我的资源-查找资源
+    def find_resource(self):
+
+
 

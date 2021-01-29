@@ -66,34 +66,95 @@ class AddPageLocs:
     # 资源进展
     resource_progress = (By.XPATH, "//input[@placeholder='请选择资源进展']")
 
+    # 资源进展-待回电
+    resource_progress_pre_phone = (By.XPATH, "//span[text()='待回电']")
+
+    # 资源进展-已回电
+    resource_progress_phoned = (By.XPATH, "//span[text()='已回电']")
+
+    # 资源进展-已上门
+    resource_progress_visit = (By.XPATH, "//span[text()='已上门']")
+
+    # 资源进展-无法联系上
+    resource_progress_uncall = (By.XPATH, "//span[text()='无法联系上']")
+
+    # 资源进展-不再跟进/死单
+    resource_progress_never = (By.XPATH, "//span[text()='不再跟进/死单']")
+
     # 首次上门日期
     first_visit_date = (By.XPATH, "(//input[@placeholder='选择日期'])[1]")
+
+    # 首次上门日期-今天
+    first_visit_date_today = (By.XPATH, "//button[text()='今天']")
+
+    # 首次上门日期-昨天
+    first_visit_date_yesterday = (By.XPATH, "//button[text()='今天']")
+
+    # 首次上门日期-一周前
+    first_visit_date_last_week = (By.XPATH, "//button[text()='一周前']")
+
+
     # 最迟回访日期
     late_visit_date = (By.XPATH, "(//input[@placeholder='选择日期'])[2]")
+
+    # 最迟回访日期-今天
+    late_visit_date_today = (By.XPATH, "//td[@class='available today']")
+
     # 年级
     collect_grade = (By.XPATH, "//input[@placeholder='请选择年级']")
+    # 年级-高一
+    collect_grade_senior = (By.XPATH, "//span[text()='高一']")
+
     # 班级
     resource_class = (By.XPATH, "//input[@placeholder='请填写班级,如五班']")
     # 就读学校
     school = (By.XPATH, "//input[@placeholder='请输入学校名称搜索']")
+    # 就读学员-厦门市实验中学
+    shiyan_school = (By.XPATH, "//span[text()='厦门市实验中学']")
+
     # 资源描述
     resource_desc = (By.XPATH, "//textarea[@placeholder='请填写资源描述,8~800中文字']")
+
     # 联系人关系
     contact_relationship = (By.XPATH, "(//input[@placeholder='请选择'])[1]")
+    # 联系人关系-父亲
+    contact_relationship_father = (By.XPATH, "//span[text()='父亲']")
+    # 联系人关系-母亲
+    contact_relationship_mother = (By.XPATH, "//span[text()='母亲']")
+    # 联系人关系-亲戚
+    contact_relationship_relation = (By.XPATH, "//span[text()='亲戚']")
+    # 联系人关系-学员
+    contact_relationship_self = (By.XPATH, "//span[text()='学员']")
+    # 联系人关系-其他
+    contact_relationship_other = (By.XPATH, "//span[text()='其他']")
+
     # 联系人姓名
     contact_name = (By.XPATH, "//input[@placeholder='请输入联系人姓名']")
     # 联系人手机/固话
     contact_phone = (By.XPATH, "//input[@placeholder='请输入联系手机/固话']")
     # 备注
     contact_remark = (By.XPATH, "//input[@placeholder='请输入备注']")
-    # 性别
-    resource_sex = (By.XPATH, "//span[@class='el-radio__label']")
+
+    # 性别-男
+    resource_sex_male = (By.XPATH, "(//span[@class='el-radio__label'])[1]")
+    # 性别-女
+    resource_sex_female = (By.XPATH, "(//span[@class='el-radio__label'])[2]")
+
     # 生日
     resource_birthday = (By.XPATH, "(//input[@placeholder='选择日期'])[3]")
     # 推荐老师
     recommend_teacher = (By.XPATH, "//input[@placeholder='请输入老师姓名搜索']")
+    # 推荐老师简称
+    recommend_teacher_short = (By.XPATH, "//span[@class='small-font']")
+
     # 科目
     intention_subject = (By.XPATH, "//input[@placeholder='请选择科目']")
+
+    # 科目-数学
+    intention_subject_math = (By.XPATH, "//span[text()='数学']")
+
+
+
     # 地址/校区
     resource_address = (By.XPATH, "//input[@placeholder='请填写地址/小区']")
 
