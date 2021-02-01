@@ -4,11 +4,12 @@
 
 from PageLocators.add_page_locs import AddPageLocs as loc
 from Common.basepage import BasePage
+from test_data.resource_data import ResourceGenerator as rg
 
 class AddPage(BasePage):
 
 
-    def add_resource(self, student_name, class_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
+    def add_resource(self, student_name, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
         # self.click_element(loc.student_name, ("添加资源页面-输入学生姓名", 'student_name'))
         contact_name = student_name + '的父亲'
 
@@ -18,7 +19,7 @@ class AddPage(BasePage):
 
         self.click_element(loc.resource_type_1, ("添加资源页面-选择校区前台电话", '校区前台电话'))
         self.click_element(loc.source_channel, ("添加资源页面-来源渠道", 'source_channel'))
-        self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-外呼中心", 'source_channel_1'))
+        self.click_element(loc.source_channel_4, ("添加资源页面-来源渠道-宣传单", 'source_channel_4'))
 
 
         self.click_element(loc.resource_stars, ("添加资源页面-资源质量5颗星", 'resource_starts'))
@@ -39,7 +40,8 @@ class AddPage(BasePage):
         self.input_text(loc.resource_class, class_name, ("添加资源页面-输入年级", 'class_name'))
 
         self.click_element(loc.school, ("添加资源页面-选择就读学校", 'school'))
-        self.click_element(loc.shiyan_school, ("添加资源页面-选择厦门市实验中学", 'shiyan_school'))
+        self.input_text(loc.school, school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
+        self.click_element(loc.school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
 
         self.input_text(loc.resource_desc, resource_desc, ("添加资源页面-填写资源描述", 'resource_desc'))
 
@@ -64,9 +66,22 @@ class AddPage(BasePage):
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
 
-
+    def add_resource_data(self):
+        student_name = rg().studentNameGenerator()
+        class_name = rg().classNameGenerator()
+        school_name = rg().schoolNameGenerator()
+        resource_desc = rg().resourceDescGenerator()
+        telephone = rg().phoneNORandomGenerator()
+        contact_remark = rg().contactDescGenerator()
+        birthday = rg().birthdayGenerator()
+        teacher = rg().teacherGenerator()
+        address = rg().addressGenerator()
+        resource_data = (student_name, class_name, school_name, resource_desc, telephone, contact_remark, birthday, teacher, address)
+        return resource_data
     # def login(self, username, password, validateCode):
     #     self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
     #     self.input_text(loc.pwd_input, password, ("登录页面_输入密码", 'pwd_input'))
     #     self.input_text(loc.validateCode_input, validateCode, ( "登录页面_输入密码", 'validateCode_input'))
     #     self.click_element(loc.login_button, ("登录页面_点击登录按钮", 'login_button'))
+    
+    

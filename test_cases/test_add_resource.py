@@ -8,6 +8,7 @@ from PageObjects.add_page import AddPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
+from test_data import resource_data as rd
 import ddt
 
 
@@ -25,14 +26,9 @@ class test_add_resource(unittest.TestCase):
         self.driver.quit()
 
     def test_add_resource(self):
-        AddPage(self.driver).add_resource("张三",
-                                          "11班",
-                                          "这个资源在考虑中，可能要等到有优惠活动的时候再报班",
-                                          "张三的父亲",
-                                          '15798873232',
-                                          '联系人备注',
-                                          '2020-01-01',
-                                          'dswen',
-                                          '厦门帝豪大厦')
+        resource_data = AddPage(self.driver).add_resource_data()
+        print(resource_data)
+        print(resource_data[0])
 
+        AddPage(self.driver).add_resource(*resource_data)
 
