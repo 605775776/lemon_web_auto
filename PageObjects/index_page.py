@@ -13,6 +13,6 @@ class IndexPage(BasePage):
 
     # 我的资源-查找资源
     def find_resource(self):
-
+        pass
 
 

@@ -6,3 +6,4 @@ Logs/*
 Browser/__pycache__
 .idea/*
 *.yaml
+yaml_handler.py
