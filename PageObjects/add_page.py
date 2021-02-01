@@ -67,16 +67,28 @@ class AddPage(BasePage):
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
 
     def add_resource_data(self):
-        student_name = rg().studentNameGenerator()
-        class_name = rg().classNameGenerator()
-        school_name = rg().schoolNameGenerator()
-        resource_desc = rg().resourceDescGenerator()
-        telephone = rg().phoneNORandomGenerator()
-        contact_remark = rg().contactDescGenerator()
-        birthday = rg().birthdayGenerator()
-        teacher = rg().teacherGenerator()
-        address = rg().addressGenerator()
-        resource_data = (student_name, class_name, school_name, resource_desc, telephone, contact_remark, birthday, teacher, address)
+        # student_name = rg().studentNameGenerator()
+        # class_name = rg().classNameGenerator()
+        # school_name = rg().schoolNameGenerator()
+        # resource_desc = rg().resourceDescGenerator()
+        # telephone = rg().phoneNORandomGenerator()
+        # contact_remark = rg().contactDescGenerator()
+        # birthday = rg().birthdayGenerator()
+        # teacher = rg().teacherGenerator()
+        # address = rg().addressGenerator()
+        #
+        # resource_data = (student_name, class_name, school_name, resource_desc, telephone, contact_remark, birthday, teacher, address)
+        resource_data = (
+            rg().studentNameGenerator(),
+            rg().classNameGenerator(),
+            rg().schoolNameGenerator(),
+            rg().resourceDescGenerator(),
+            rg().phoneNORandomGenerator(),
+            rg().contactDescGenerator(),
+            rg().birthdayGenerator(),
+            rg().teacherGenerator(),
+            rg().addressGenerator()
+        )
         return resource_data
     # def login(self, username, password, validateCode):
     #     self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
