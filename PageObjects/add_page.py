@@ -8,8 +8,10 @@ from Common.basepage import BasePage
 class AddPage(BasePage):
 
 
-    def add_resource(self, student_name, class_name, resource_desc, contact_name, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
+    def add_resource(self, student_name, class_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
         # self.click_element(loc.student_name, ("添加资源页面-输入学生姓名", 'student_name'))
+        contact_name = student_name + '的父亲'
+
         self.input_text(loc.student_name, student_name, ("添加资源页面-输入学生姓名", 'student_name'))
 
         self.click_element(loc.resource_type, ("添加资源页面-输入资源类型", 'resource_type'))
