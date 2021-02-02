@@ -17,9 +17,11 @@ class AddPage(BasePage):
 
         self.click_element(loc.resource_type, ("添加资源页面-输入资源类型", 'resource_type'))
 
-        self.click_element(loc.resource_type_1, ("添加资源页面-选择校区前台电话", '校区前台电话'))
+        self.click_element(loc.resource_type_4, ("添加资源页面-选择总部其他资源", 'resource_type_4'))
         self.click_element(loc.source_channel, ("添加资源页面-来源渠道", 'source_channel'))
-        self.click_element(loc.source_channel_4, ("添加资源页面-来源渠道-宣传单", 'source_channel_4'))
+        self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-外呼中心", 'source_channel_1'))
+        # self.click_element(loc.source_channel_hover, ("添加资源页面-来源渠道-宣传单", 'source_channel_hover'))
+
 
 
         self.click_element(loc.resource_stars, ("添加资源页面-资源质量5颗星", 'resource_starts'))
@@ -34,6 +36,7 @@ class AddPage(BasePage):
         self.click_element(loc.late_visit_date_today, ("添加资源页面-最迟回访日期选择今天", "late_visit_date_today"))
 
         self.click_element(loc.collect_grade, ("添加资源页面-录入年级", "collect_grade"))
+        js = 'document.getElementBy'
         self.click_element(loc.collect_grade_senior, ("添加资源页面-录入年级选择高一", "collect_grade_senior"))
 
         # self.click_element(loc.resource_class, ("添加资源页面-录入班级", 'resource_class'))

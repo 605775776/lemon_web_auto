@@ -15,7 +15,7 @@ class AddPageLocs:
     # 资源类型-总部呼入
     resource_type_3 = (By.XPATH, "//li/span[text()='总部呼入']")
     # 资源类型-总部其他资源
-    resource_type_4 = (By.XPATH, "//li/span[text()='总部其他资源']")
+    resource_type_4 = (By.XPATH, "//li/span[text()='总部其它资源']")
     # 资源类型-学管师挖掘/转介绍
     resource_type_5 = (By.XPATH, "//li/span[text()='学管师挖掘/转介绍']")
     # 资源类型-课程顾问/咨询师挖掘资源
@@ -48,6 +48,9 @@ class AddPageLocs:
     source_channel_11 = (By.XPATH, "//li/span[text()='报媒广告']")
     # 来源渠道-其他业务线推荐
     source_channel_12 = (By.XPATH, "//li/span[text()='其他业务线推荐']")
+
+    # 来源渠道-鼠标悬停
+    source_channel_hover = (By.XPATH, "//li[@class='el-select-dropdown__item hover']")
 
     # 资源日期
     collect_date = (By.XPATH, "//input[@placeholder='选择日期时间']")
