@@ -54,7 +54,7 @@ class AddPage(BasePage):
         self.input_text(loc.contact_name, contact_name, ("添加资源页面-输入联系人姓名", 'contact_name'))
         self.input_text(loc.contact_phone, contact_phone, ("添加资源页面-输入联系人电话", 'contact_phone'))
         self.input_text(loc.contact_remark, contact_remark, ("添加资源页面-输入联系人电话", 'contact_remark'))
-        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        # self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
         self.click_element(loc.resource_sex_male, ("添加资源页面-性别男", 'resource-sex-male'))
         self.input_text(loc.resource_birthday, resource_birthday, ("添加资源页面-生日设置为2020-01-01", 'resource_birthday'))
