@@ -36,10 +36,8 @@ class AddPage(BasePage):
         self.click_element(loc.late_visit_date_today, ("添加资源页面-最迟回访日期选择今天", "late_visit_date_today"))
 
         self.click_element(loc.collect_grade, ("添加资源页面-录入年级", "collect_grade"))
-        js = 'document.getElementBy'
-        self.click_element(loc.collect_grade_senior, ("添加资源页面-录入年级选择高一", "collect_grade_senior"))
 
-        # self.click_element(loc.resource_class, ("添加资源页面-录入班级", 'resource_class'))
+        self.click_element(loc.collect_grade_xxb, ("添加资源页面-录入年级选择高一", "collect_grade_xxb"))
         self.input_text(loc.resource_class, class_name, ("添加资源页面-输入年级", 'class_name'))
 
         self.click_element(loc.school, ("添加资源页面-选择就读学校", 'school'))
@@ -47,6 +45,8 @@ class AddPage(BasePage):
         self.click_element(loc.school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
 
         self.input_text(loc.resource_desc, resource_desc, ("添加资源页面-填写资源描述", 'resource_desc'))
+
+        self.get_element(loc.contact_relationship_text, ("添加资源页面-js窗口滚动", 'contact_relationship_text')).location_once_scrolled_into_view
 
         self.click_element(loc.contact_relationship, ("添加资源页面-选择联系人关系", 'contact_relationship'))
         self.click_element(loc.contact_relationship_father, ("添加资源页面-选择联系人关系-父亲", 'contact_relationship_father'))

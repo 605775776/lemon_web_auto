@@ -105,6 +105,9 @@ class AddPageLocs:
 
     # 年级
     collect_grade = (By.XPATH, "//input[@placeholder='请选择年级']")
+
+    # 年级-小小班
+    collect_grade_xxb = (By.XPATH, "//span[text()='小小班']")
     # 年级-高一
     collect_grade_senior = (By.XPATH, "//span[text()='高一']")
 
@@ -117,6 +120,9 @@ class AddPageLocs:
 
     # 资源描述
     resource_desc = (By.XPATH, "//textarea[@placeholder='请填写资源描述,8~800中文字']")
+
+    # 联系人关系文本
+    contact_relationship_text = (By.XPATH, "//div[text()='联系人关系']")
 
     # 联系人关系
     contact_relationship = (By.XPATH, "(//input[@placeholder='请选择'])[1]")
