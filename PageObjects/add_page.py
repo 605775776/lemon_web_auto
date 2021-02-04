@@ -17,7 +17,7 @@ class AddPage(BasePage):
 
         self.click_element(loc.resource_type, ("添加资源页面-输入资源类型", 'resource_type'))
 
-        self.click_element(loc.resource_type_4, ("添加资源页面-选择总部其他资源", 'resource_type_4'))
+        self.click_element(loc.resource_type_2, ("添加资源页面-临访", 'resource_type_2'))
         self.click_element(loc.source_channel, ("添加资源页面-来源渠道", 'source_channel'))
         self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-外呼中心", 'source_channel_1'))
         # self.click_element(loc.source_channel_hover, ("添加资源页面-来源渠道-宣传单", 'source_channel_hover'))
@@ -26,8 +26,8 @@ class AddPage(BasePage):
 
         self.click_element(loc.resource_stars, ("添加资源页面-资源质量5颗星", 'resource_starts'))
 
-        self.click_element(loc.resource_progress, ("添加资源页面-资源进展", 'resource_progress'))
-        self.click_element(loc.resource_progress_pre_phone, ("添加资源页面-资源进展-待回电", 'resource_progress_pre_phone'))
+        # self.click_element(loc.resource_progress, ("添加资源页面-资源进展", 'resource_progress'))
+        # self.click_element(loc.resource_progress_pre_phone, ("添加资源页面-资源进展-待回电", 'resource_progress_pre_phone'))
 
         self.click_element(loc.first_visit_date, ("添加资源页面-首次上门日期", 'first_visit_date'))
         self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
