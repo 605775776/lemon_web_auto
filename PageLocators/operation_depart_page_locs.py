@@ -128,7 +128,9 @@ class OperationDepartPageLocs:
     resource_progress_never = (By.XPATH, "//span[text()='不再跟进/死单']")
 
     # 资源进展-已成单
-    resource_progress_never = (By.XPATH, "//span[text()='已成单']")
+    resource_progress_order = (By.XPATH, "//span[text()='已成单']")
+
+
 
 
 

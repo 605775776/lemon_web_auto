@@ -88,7 +88,7 @@ class AddPageLocs:
     first_visit_date = (By.XPATH, "(//input[@placeholder='选择日期'])[1]")
 
     # 首次上门日期-今天
-    first_visit_date_today = (By.XPATH, "(//button[text()='今天'])[2]")
+    first_visit_date_today = (By.XPATH, "(//button[text()='今天'])[1]")
 
     # 首次上门日期-昨天
     first_visit_date_yesterday = (By.XPATH, "(//button[text()='昨天'])[2]")
@@ -101,7 +101,7 @@ class AddPageLocs:
     late_visit_date = (By.XPATH, "(//input[@placeholder='选择日期'])[2]")
 
     # 最迟回访日期-今天
-    late_visit_date_today = (By.XPATH, "(//td[@class='available today'])[3]")
+    late_visit_date_today = (By.XPATH, "(//td[@class='available today'])[1]")
 
     # 年级
     collect_grade = (By.XPATH, "//input[@placeholder='请选择年级']")

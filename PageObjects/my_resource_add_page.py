@@ -1,8 +1,10 @@
 # coding:utf-8
 # 2021/1/19 14:02
 # Author:dsw
+import time
 
 from PageLocators.add_page_locs import AddPageLocs as loc
+from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as oloc
 from Common.basepage import BasePage
 from test_data.resource_data import ResourceGenerator as rg
 
@@ -25,8 +27,8 @@ class AddPage(BasePage):
         self.click_element(loc.source_channel, ("添加资源页面-来源渠道", 'source_channel'))
         self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-外呼中心", 'source_channel_1'))
 
-        self.click_element(loc.collect_date, ("添加资源页面-更改资源日期", 'collect_date'))
-        self.click_element(loc.collect_date_yesterday, ("添加资源页面-选择昨天", 'collect_date_yesterday'))
+        # self.click_element(loc.collect_date, ("添加资源页面-更改资源日期", 'collect_date'))
+        # self.click_element(loc.collect_date_yesterday, ("添加资源页面-选择昨天", 'collect_date_yesterday'))
 
         self.click_element(loc.resource_stars, ("添加资源页面-资源质量5颗星", 'resource_starts'))
 
@@ -34,8 +36,8 @@ class AddPage(BasePage):
         self.click_element(loc.resource_progress_pre_phone, ("添加资源页面-资源进展-待回电", 'resource_progress_pre_phone'))
 
         self.click_element(loc.first_visit_date, ("添加资源页面-首次上门日期", 'first_visit_date'))
-        # self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
-        self.click_element(loc.first_visit_date_yesterday, ("添加资源页面-首次上门日期选择昨天", 'first_visit_date_yesterday'))
+        self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
+        # self.click_element(loc.first_visit_date_yesterday, ("添加资源页面-首次上门日期选择昨天", 'first_visit_date_yesterday'))
 
         self.click_element(loc.late_visit_date, ("添加资源页面-最迟回访日期", "late_visit_date"))
         self.click_element(loc.late_visit_date_today, ("添加资源页面-最迟回访日期选择今天", "late_visit_date_today"))
@@ -73,10 +75,13 @@ class AddPage(BasePage):
         self.input_text(loc.resource_address, resource_address, ("添加资源页面-资源地址/小区",'resource_address'))
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
-
-        js = "var q=document.documentElement.scrollTop=0"
-        self.driver.execute_script(js)
-
+        self.get_element(oloc.operation_depart,
+                         ("添加资源页面-窗口滚动", 'operation_depart')).location_once_scrolled_into_view
+        time.sleep(3)
+        # js = "var q=document.documentElement.scrollTop=0"
+        # self.driver.execute_script(js)
+        # js = "windows.scrollTo(0,0)"
+        # self.driver.execute_script(js)
     def add_resource_data(self):
         resource_data = (
             rg().studentNameGenerator(),

@@ -32,13 +32,13 @@ class test_add_resource(unittest.TestCase):
 
     def test_add_resource(self):
         OperationPage(self.driver).enter_operation_page()
-        time.sleep(5)
+        time.sleep(3)
         (a, b, c, d) = OperationPage(self.driver).get_resource_count()
 
         OperationPage(self.driver).add_resource()
         resource_data = AddPage(self.driver).add_resource_data()
         AddPage(self.driver).add_resource(*resource_data)
-        time.sleep(5)
+        time.sleep(3)
         (e, f, g, h) = OperationPage(self.driver).get_resource_count()
         print(a, b, c, d)
         print(e, f, g, h)
