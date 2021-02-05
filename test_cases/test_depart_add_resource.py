@@ -4,7 +4,7 @@
 import unittest
 from PageObjects.login_page import LoginPage
 from PageObjects.index_page import IndexPage
-from PageObjects.add_page import AddPage
+from PageObjects.my_resource_add_page import AddPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
@@ -20,7 +20,7 @@ class test_add_resource(unittest.TestCase):
         self.driver.get(GD.login_url)
         self.driver.maximize_window()
         LoginPage(self.driver).login(*lds.success)
-        IndexPage(self.driver).add_my_resource()
+        IndexPage(self.driver).add_depart_resource()
 
     def tearDown(self):
         self.driver.quit()
