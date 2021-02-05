@@ -11,7 +11,7 @@ class Config:
     # config路径
     config_path = os.path.join(root_path, 'config')
 
-    # 日志配置路径
+    # 配置路径
     yaml_config_path = os.path.join(config_path, 'config.yaml')
 
     # 输出文件路径

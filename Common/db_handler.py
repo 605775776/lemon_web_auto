@@ -39,19 +39,24 @@ class DBHandler:
 
 if __name__ == '__main__':
 
-    from config.setting import Config
-    import yaml
-    f = open(Config.yaml_config_path, encoding='utf-8')
-    yaml_data = yaml.load(f, Loader=yaml.FullLoader)
+    # from Common.setting import Config
+    # import yaml
+    # f = open(Config.yaml_config_path, encoding='utf-8')
+    # yaml_data = yaml.load(f, Loader=yaml.FullLoader)
     # print(yaml_data)
-
-    db = DBHandler(host=yaml_data['database']['host'],
-                   port=yaml_data['database']['port'],
-                   user=yaml_data['database']['user'],
-                   password=yaml_data['database']['password'],
-                   charset=yaml_data['database']['charset'],
-                   database=yaml_data['database']['database']
-                   )
-
-    res = db.query("select * from crm_resource where id = 1")
-    print(res)
+    # print(yaml_data['database']['host'])
+    # print(yaml_data['database']['port'])
+    # print(yaml_data['database']['user'])
+    # print(yaml_data['database']['password'])
+    # print(yaml_data['database']['charset'])
+    # print(yaml_data['database']['db'])
+    # db = DBHandler(host=yaml_data['database']['host'],
+    #                port=yaml_data['database']['port'],
+    #                user=yaml_data['database']['user'],
+    #                password=yaml_data['database']['password'],
+    #                charset=yaml_data['database']['charset'],
+    #                database=yaml_data['database']['db']
+    #                )
+    #
+    # res = db.query("select * from crm_resource where id = 1")
+    # print(res)

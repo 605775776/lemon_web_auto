@@ -11,6 +11,8 @@ class AddPage(BasePage):
 
     def add_resource(self, student_name, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
         # self.click_element(loc.student_name, ("添加资源页面-输入学生姓名", 'student_name'))
+
+
         contact_name = student_name + '的父亲'
 
         self.input_text(loc.student_name, student_name, ("添加资源页面-输入学生姓名", 'student_name'))
@@ -72,18 +74,10 @@ class AddPage(BasePage):
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
 
+        js = "var q=document.documentElement.scrollTop=0"
+        self.driver.execute_script(js)
+
     def add_resource_data(self):
-        # student_name = rg().studentNameGenerator()
-        # class_name = rg().classNameGenerator()
-        # school_name = rg().schoolNameGenerator()
-        # resource_desc = rg().resourceDescGenerator()
-        # telephone = rg().phoneNORandomGenerator()
-        # contact_remark = rg().contactDescGenerator()
-        # birthday = rg().birthdayGenerator()
-        # teacher = rg().teacherGenerator()
-        # address = rg().addressGenerator()
-        #
-        # resource_data = (student_name, class_name, school_name, resource_desc, telephone, contact_remark, birthday, teacher, address)
         resource_data = (
             rg().studentNameGenerator(),
             rg().classNameGenerator(),
@@ -96,10 +90,3 @@ class AddPage(BasePage):
             rg().addressGenerator()
         )
         return resource_data
-    # def login(self, username, password, validateCode):
-    #     self.input_text(loc.user_input, username, ("登录页面_输入用户名", 'user_input'))
-    #     self.input_text(loc.pwd_input, password, ("登录页面_输入密码", 'pwd_input'))
-    #     self.input_text(loc.validateCode_input, validateCode, ( "登录页面_输入密码", 'validateCode_input'))
-    #     self.click_element(loc.login_button, ("登录页面_点击登录按钮", 'login_button'))
-    
-    

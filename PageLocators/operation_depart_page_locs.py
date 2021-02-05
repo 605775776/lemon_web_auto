@@ -3,6 +3,8 @@
 # Author:dsw
 from selenium.webdriver.common.by import By
 class OperationDepartPageLocs:
+
+
     # 我的资源-运营部
     operation_depart = (By.XPATH, "//div[@id='tab-1']")
 
