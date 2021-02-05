@@ -37,7 +37,7 @@ class DBHandler:
         self.conn.close()
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
     # from Common.setting import Config
     # import yaml

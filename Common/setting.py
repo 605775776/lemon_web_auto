@@ -48,4 +48,4 @@ if __name__ == '__main__':
     print(Config.root_path)
     print(Config.Outputs_path)
     print(Config.screenshot_dir)
-    print(Config.log_path)
+    print(Config.log_dir_path)

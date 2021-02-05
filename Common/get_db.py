@@ -9,4 +9,11 @@ class MyDBHandler(DBHandler):
                          user=yaml_data['database']['user'],
                          password=yaml_data['database']['password'],
                          charset=yaml_data['database']['charset'],
-                         database=yaml_data['database']['database'])
+                         database=yaml_data['database']['db'])
+
+
+if __name__ == '__main__':
+    db = MyDBHandler()
+    print(db)
+    a = db.query("select * from crm_resource where id = 1")
+    print(a)
