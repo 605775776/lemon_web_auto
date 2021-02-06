@@ -75,9 +75,9 @@ class AddPage(BasePage):
         self.input_text(loc.resource_address, resource_address, ("添加资源页面-资源地址/小区",'resource_address'))
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
+        time.sleep(3)
         self.get_element(oloc.operation_depart,
                          ("添加资源页面-窗口滚动", 'operation_depart')).location_once_scrolled_into_view
-        time.sleep(3)
         # js = "var q=document.documentElement.scrollTop=0"
         # self.driver.execute_script(js)
         # js = "windows.scrollTo(0,0)"
@@ -92,6 +92,7 @@ class AddPage(BasePage):
             rg().contactDescGenerator(),
             rg().birthdayGenerator(),
             rg().teacherGenerator(),
-            rg().addressGenerator()
+            rg().addressGenerator(),
+
         )
         return resource_data

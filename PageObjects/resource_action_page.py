@@ -6,6 +6,7 @@
 from Common.basepage import BasePage
 from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as loc
 from PageLocators.resource_detail_page_locs import ResourceDetailPageLocs as rloc
+from PageLocators.follow_page_locs import FollowPageLocs as floc
 
 class ResourceActionPage(BasePage):
 
@@ -26,12 +27,21 @@ class ResourceActionPage(BasePage):
             self.click_element(rloc.order_info, ("资源详情页面-基本信息", 'order_info'))
 
 
-    def follow(self):
-        self.click_element()
-        self.click_element()
+    def follow(self,context):
+        self.click_element(loc.first_resource_follow, ("运营部首页-点击第一个资源跟进", 'first_resource_follow'))
+        self.click_element(floc.follow_method, ("跟进页面-选择跟进方式", 'follow_method'))
+        self.click_element(floc.follow_method_weixin, ("跟进页面-选择微信/qq", 'follow_method_weixin'))
+        self.click_element(floc.resource_progress, ("跟进页面-点击资源进展", 'resource_progress'))
+        self.click_element(floc.progess_phoned, ("跟进页面-资源进展选择已回电", 'progresss_phoned'))
+        self.click_element(floc.resource_stars, ("跟进页面-资源质量4颗星", 'resource_stars'))
+        self.input_text(floc.communicate_context, context, ("跟进页面-填写沟通内容", 'communicate_context'))
+        self.click_element(floc.late_follow_date, ("跟进页面-点击最迟回访日期", 'late_follow_date'))
+        self.click_element(floc.late_follow_date_tomorrow, ("跟进页面-选择最迟回访日期下一天", 'late_follow_date_tomorrow'))
+        self.click_element(floc.confirm_button, ("跟进页面-确定", 'confirm_button'))
 
     def sign(self):
-        pass
+        self.click_element(loc.first_resource_sign, ("运营部首页-点击第一个资源签约", 'first_resource_sign'))
+
 
     def listen(self):
         pass
