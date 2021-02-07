@@ -1,10 +1,6 @@
-# coding:utf-8
 # 2021/2/5 10:50
 # Author:dsw
 
-# coding:utf-8
-# 2021/1/19 10:08
-# Author:dsw
 import time
 import unittest
 from PageObjects.login_page import LoginPage

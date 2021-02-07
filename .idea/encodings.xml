@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/Common/db_handler.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Common/get_db.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Common/log.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/PageObjects/login_page.py" charset="GBK" />
     <file url="file://$PROJECT_DIR$/log/log.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/test_cases/test_get_count.py" charset="GBK" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
