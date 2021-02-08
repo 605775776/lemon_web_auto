@@ -1,6 +1,8 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+
 from Common.logger_handler import logger
 import time
 from Common.setting import Config
@@ -45,6 +47,11 @@ class BasePage:
         logger.info("在{}查找元素：{}".format(img_name_loc[0], img_name_loc[1]))
         try:
             ele = self.driver.find_element(*loc)
+            # print(loc)
+            # print("------")
+            # print(*loc)
+            # print("------")
+            # print(ele)
         except:
             self.save_page_shot(img_name_loc[0])
             logger.exception("查找元素{}失败".format(img_name_loc[1]))
@@ -113,7 +120,7 @@ class BasePage:
             text = ele.text
         except:
             self.save_page_shot(img_name_loc)
-            logger.exception("获取元素{}的文本失败".format(loc[1]))
+            logger.exception("获取元素{}的文本失败".format(img_name_loc[1]))
             raise
         else:
             logger.info("元素{}的文本值：{}".format(img_name_loc[1], text))
@@ -129,6 +136,21 @@ class BasePage:
         self.driver.save_screenshot(screenshot_path)
         logger.info("页面图片保存在：{}".format(screenshot_path))
 
+    # 鼠标下滑点击
+    # def mouse_move_down(self, loc, img_name_loc):
+    #     ele = self.get_element(loc, img_name_loc)
+    #
+    #     ActionChains(self.driver).click(ele).perform()
+    #     time.sleep(3)
+    #     self.save_page_shot(1)
+    #     logger.info("在{}点击{}元素".format(img_name_loc[0], img_name_loc[1]))
+    #     try:
+    #         ActionChains(self.driver).move_to_element_with_offset(ele, 0, 60).click().perform()
+    #         time.sleep(3)
+    #         logger.info("鼠标下移操作元素{}成功".format(img_name_loc[1]))
+    #     except:
+    #         logger.exception("鼠标点击元素{}下拉框失败".format(img_name_loc[1]))
+    #         raise
     # 切换到新的窗口
     # iframe切换
     # alert切换

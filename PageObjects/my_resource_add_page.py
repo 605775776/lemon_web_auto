@@ -11,21 +11,16 @@ from test_data.resource_data import ResourceGenerator as rg
 class AddPage(BasePage):
 
 
-    def add_resource(self, student_name, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
-        # self.click_element(loc.student_name, ("添加资源页面-输入学生姓名", 'student_name'))
-
+    def add_resource(self, student_name, resource_progress, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
 
         contact_name = student_name + '的父亲'
-
         self.input_text(loc.student_name, student_name, ("添加资源页面-输入学生姓名", 'student_name'))
-
         self.click_element(loc.resource_type, ("添加资源页面-输入资源类型", 'resource_type'))
-
+        # self.mouse_move_down(loc.resource_type, ("添加资源页面-输入资源类型", 'resource_type'))
         # self.click_element(loc.resource_type_2, ("添加资源页面-临访", 'resource_type_2'))
         self.click_element(loc.resource_type_1, ("添加资源页面-校区前台电话", 'resource_type_1'))
-
         self.click_element(loc.source_channel, ("添加资源页面-来源渠道", 'source_channel'))
-        self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-外呼中心", 'source_channel_1'))
+        self.click_element(loc.source_channel_1, ("添加资源页面-来源渠道-列表返回第一个", 'source_channel_1'))
 
         # self.click_element(loc.collect_date, ("添加资源页面-更改资源日期", 'collect_date'))
         # self.click_element(loc.collect_date_yesterday, ("添加资源页面-选择昨天", 'collect_date_yesterday'))
@@ -33,7 +28,12 @@ class AddPage(BasePage):
         self.click_element(loc.resource_stars, ("添加资源页面-资源质量5颗星", 'resource_starts'))
 
         self.click_element(loc.resource_progress, ("添加资源页面-资源进展", 'resource_progress'))
-        self.click_element(loc.resource_progress_pre_phone, ("添加资源页面-资源进展-待回电", 'resource_progress_pre_phone'))
+        if resource_progress not in (4, 5):
+            self.click_element(loc.resource_progress_pre_phone, ("添加资源页面-资源进展-待回电", 'resource_progress_pre_phone'))
+        elif resource_progress == 4:
+            self.click_element(loc.resource_progress_uncall, ("添加资源页面-资源进展-无法联系上", 'resource_progress_uncall'))
+        elif resource_progress == 5:
+            self.click_element(loc.resource_progress_never, ("添加资源页面-资源进展-不再跟进/死单", 'resource_progress_never'))
 
         self.click_element(loc.first_visit_date, ("添加资源页面-首次上门日期", 'first_visit_date'))
         self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
@@ -44,7 +44,7 @@ class AddPage(BasePage):
 
         self.click_element(loc.collect_grade, ("添加资源页面-录入年级", "collect_grade"))
 
-        self.click_element(loc.collect_grade_xxb, ("添加资源页面-录入年级选择高一", "collect_grade_xxb"))
+        self.click_element(loc.collect_grade_senior, ("添加资源页面-录入年级选择高一", "collect_grade_senior"))
         self.input_text(loc.resource_class, class_name, ("添加资源页面-输入年级", 'class_name'))
 
         self.click_element(loc.school, ("添加资源页面-选择就读学校", 'school'))

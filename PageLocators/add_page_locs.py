@@ -25,8 +25,10 @@ class AddPageLocs:
     # 来源渠道
     source_channel = (By.XPATH, "//input[@placeholder='请选择来源渠道']")
 
-    # 来源渠道-外呼中心
-    source_channel_1 = (By.XPATH, "//li/span[text()='外呼中心']")
+    # 来源渠道-外呼中心 列表返回的第一个 [last()]
+    # source_channel_1 = (By.XPATH, "//li/span[text()='外呼中心']")
+    # source_channel_1 = (By.XPATH, "(//body/div)[3]//li[10]/span")
+    source_channel_1 = (By.XPATH, "(//body/div)[last()]//li/span")
     # 来源渠道-营销短信
     source_channel_2 = (By.XPATH, "//li/span[text()='营销短信']")
     # 来源渠道-官网/微信
@@ -110,7 +112,7 @@ class AddPageLocs:
     # 年级-小小班
     collect_grade_xxb = (By.XPATH, "//span[text()='小小班']")
     # 年级-高一
-    collect_grade_senior = (By.XPATH, "//span[text()='高一']")
+    collect_grade_senior = (By.XPATH, "(//body/div)[last()]//li[15]/span")
 
     # 班级
     resource_class = (By.XPATH, "//input[@placeholder='请填写班级,如五班']")

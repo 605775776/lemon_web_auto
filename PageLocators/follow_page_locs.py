@@ -46,5 +46,20 @@ class FollowPageLocs:
     first_visit_date = (By.XPATH, "//label[@for='firstVisitDate']/parent::div//input")
 
     # 默认选择当天
-    first_visit_date= (By.XPATH, "//td[@class='available today']//span")
+    first_visit_date_today = (By.XPATH, "//td[@class='available today']//span")
 
+    # 资源质量 5颗星
+    resource_stars = (By.XPATH, "//label[@for='quality']/following::div/div/span[5]")
+
+    # 沟通内容
+    communicate_context = (By.XPATH, "//textarea[@placeholder='请填写沟通内容,800字以内']")
+
+    # 最迟回访日期
+    next_follow_update = (By.XPATH, "//label[@for='nextFollowUpDate']/following::input")
+
+    # 最迟回访日期选择下一个月
+    # next_month = (By.XPATH, "(//div[@class='el-date-picker__header']//button[@aria-label='下个月'])[2]")
+    next_month = (By.CSS_SELECTOR, "div.el-date-picker__header>button>aria-label")
+
+    # 下个月的1号
+    next_month_1 = (By.XPATH, "//td[@class='available']/div/span")

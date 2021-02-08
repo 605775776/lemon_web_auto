@@ -63,6 +63,24 @@ class test_add_resource(unittest.TestCase):
         pass
 
 
+    def test_add_uncontact_resource(self):
+        OperationPage(self.driver).enter_operation_page()
+        time.sleep(2)
+        (a, b, c, d) = OperationPage(self.driver).get_resource_count()
+
+        OperationPage(self.driver).add_resource()
+        resource_data = AddPage(self.driver).add_resource_data()
+        print(resource_data)
+        AddPage(self.driver).add_resource(*resource_data)
+        time.sleep(2)
+        (e, f, g, h) = OperationPage(self.driver).get_resource_count()
+        print(a, b, c, d)
+        print(e, f, g, h)
+        self.assertEqual(int(e)-int(a), 1)
+        self.assertEqual(int(f)-int(b), 1)
+        self.assertEqual(int(g)-int(c), 1)
+        self.assertEqual(int(h)-int(d), 0)
+
 
 
 
