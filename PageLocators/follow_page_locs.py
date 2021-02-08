@@ -31,4 +31,20 @@ class FollowPageLocs:
     resource_progress = (By.XPATH, "//div[@aria-label='跟进资源']//input[@placeholder='请选择资源进展']")
 
     # 已回电
+    progress_phoned = (By.XPATH, "(//li[@class='el-select-dropdown__item']/span[text()='已回电'])[2]")
+
+    # 已上门
+    progress_homed = (By.XPATH, "(//li[@class='el-select-dropdown__item']/span[text()='已上门'])[2]")
+
+    # 无法联系上
+    progress_uncontact = (By.XPATH, "(//li[@class='el-select-dropdown__item']/span[text()='无法联系上'])[2]")
+
+    # 不再跟进/死单
+    progress_never_follow = (By.XPATH, "//li[@class='el-select-dropdown__item']/span[text()='不再跟进/死单']")
+
+    # 首次上门日期为空时
+    first_visit_date = (By.XPATH, "//label[@for='firstVisitDate']/parent::div//input")
+
+    # 默认选择当天
+    first_visit_date= (By.XPATH, "//td[@class='available today']//span")
 

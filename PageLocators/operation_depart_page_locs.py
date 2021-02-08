@@ -42,7 +42,7 @@ class OperationDepartPageLocs:
     first_resource_detail = (By.XPATH, "(//i[@class='hifont hi-xiangqing list-opera-icon el-popover__reference'])[1]")
 
     # 资源列表-第一个资源-跟进
-    first_resource_follow = (By.XPATH, "(//i[@class='hifont hi-genjin list-opera-icon el-popover__reference'])[1]")
+    first_resource_follow = (By.XPATH, "(//i[@class='hifont hi-genjin list-opera-icon el-popover__reference'])[21]")
 
     # 资源列表-第一个资源-签约
     first_resource_sign = (By.XPATH, "(//i[@class='hifont hi-qianyue list-opera-icon el-popover__reference'])[1]")
