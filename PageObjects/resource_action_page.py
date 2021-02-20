@@ -12,7 +12,7 @@ from PageLocators.add_appointment_page_locs import AddAppointmentPageLocs as alo
 
 class ResourceActionPage(BasePage):
 
-    def resource_detail_(self, tabNo):
+    def resource_detail(self, tabNo):
         self.click_element(loc.first_resource_detail, ("运营部首页-第一个资源详情", 'first_resource_detail'))
         if tabNo == 1:
             self.click_element(rloc.base_info, ("资源详情页面-基本信息", 'base_info'))
@@ -40,10 +40,10 @@ class ResourceActionPage(BasePage):
 
         self.input_text(floc.communicate_context, context, ("跟进页面-填写沟通内容", 'communicate_context'))
         self.click_element(floc.next_follow_update, ("跟进页面-点击最迟回访日期", 'next_follow_update'))
-        self.click_element(floc.next_month, ("跟进页面-选择最迟回访日期下一个月", 'next_month'))
-        self.click_element(floc.next_month_1, ("跟进页面-选择最迟回访日期下一个月1号", 'next_month_1'))
+        self.click_element(floc.date_next_month, ("跟进页面-选择最迟回访日期下一个月", 'date_next_month'))
+        self.click_element(floc.date_first_day, ("跟进页面-选择最迟回访日期下一个月1号", 'date_first_day'))
 
-        self.click_element(floc.confirm_button, ("跟进页面-确定", 'confirm_button'))
+        self.click_element(floc.confirm, ("跟进页面-确定", 'confirm_button'))
 
     def sign(self):
         self.click_element(loc.first_resource_sign, ("运营部首页-点击第一个资源签约", 'first_resource_sign'))
@@ -54,7 +54,10 @@ class ResourceActionPage(BasePage):
     def modify(self):
         pass
 
-    def appointment(self, appointment_object):
+    def appointment(self):
+        appointment_object_1 = self.driver.find_element_by_xpath("//td/div").text
+        appointment_object = self.get_ele_text(aloc.appointment_object_first_contact_name, ("获取列表第一个资源作为约访对象", 'appointment_object'))
+
         self.click_element(loc.first_resource_appointment, ("运营部首页-点击第一个资源的预约访元素", 'first_resource_appointment'))
         self.click_element(aloc.appointment_school, ("预约访页面-约访地点元素", 'appointment_school'))
         self.click_element(aloc.appointment_school_selected, ("预约访页面-默认选中第一个校区", 'appointment_school_selected'))

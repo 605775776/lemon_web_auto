@@ -47,11 +47,7 @@ class BasePage:
         logger.info("在{}查找元素：{}".format(img_name_loc[0], img_name_loc[1]))
         try:
             ele = self.driver.find_element(*loc)
-            # print(loc)
-            # print("------")
-            # print(*loc)
-            # print("------")
-            # print(ele)
+
         except:
             self.save_page_shot(img_name_loc[0])
             logger.exception("查找元素{}失败".format(img_name_loc[1]))

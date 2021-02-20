@@ -29,6 +29,7 @@ class test_add_resource(unittest.TestCase):
         self.driver.quit()
 
     def test_add_resource(self):
+
         resource_data = AddPage(self.driver).add_resource_data()
         OperationPage(self.driver).add_resource()
         AddPage(self.driver).add_resource(*resource_data)

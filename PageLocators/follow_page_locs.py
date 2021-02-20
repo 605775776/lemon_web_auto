@@ -59,7 +59,10 @@ class FollowPageLocs:
 
     # 最迟回访日期选择下一个月
     # next_month = (By.XPATH, "(//div[@class='el-date-picker__header']//button[@aria-label='下个月'])[2]")
-    next_month = (By.CSS_SELECTOR, "div.el-date-picker__header>button>aria-label>i")
+    date_next_month = (By.XPATH, "//button[@aria-label='下个月']")
 
     # 下个月的1号
-    next_month_1 = (By.XPATH, "//td[@class='available']/div/span")
+    date_first_day = (By.XPATH, "//td[@class='prev-month']/following-sibling::td//span")
+
+    # 确定
+    confirm = (By.XPATH, "//span[text()='确 定']")

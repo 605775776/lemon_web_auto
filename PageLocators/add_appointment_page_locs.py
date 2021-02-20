@@ -16,8 +16,8 @@ class AddAppointmentPageLocs:
     appointment_object = (By.XPATH, "//input[@placeholder='请填写约访对象']")
 
     # 默认约访对象为当前资源的联系人姓名
-    appointment_object_selected = (By.XPATH, "(//td[@class='el-table_1_column_2  ']/div)[1]")
-
+    appointment_object_first_contact_name = (By.XPATH, "((//tr[@class='el-table__row'])[1]//td)[1]/div")
+    # appointment_object_first_contact_name = (By.CSS_SELECTOR, "tr.el-table__row>td>div")
     # 约访日期
     appointment_date = (By.XPATH, "//input[@placeholder='请选择预约日期']")
 
