@@ -12,6 +12,9 @@ class IndexPageLocs:
     # 我的资源
     my_resource = (By.XPATH, "//span[text()='我的资源']")
 
+    # 运营部
+    operation_depart = (By.XPATH, "//li/span[text()='运营部']")
+
     # 部门资源
     department_resource = (By.XPATH, "//span[text()='部门资源']")
 

@@ -5,14 +5,9 @@ from selenium.webdriver.common.by import By
 class OperationDepartPageLocs:
 
 
-    # 我的资源-运营部
-    operation_depart = (By.XPATH, "//div[@id='tab-1']")
+    # 全部资源
+    tab_total = (By.XPATH, "//div[@id='tab-total']")
 
-    # 我的资源-学科部
-    subject_depart = (By.XPATH, "//div[@id='tab-2']")
-
-    # 我的资源-市场部
-    market_depart = (By.XPATH, "//div[@id='tab-3']")
 
     # 我的资源-添加资源
     add_resource = (By.XPATH, "//span[text()='添加资源']")
@@ -27,16 +22,16 @@ class OperationDepartPageLocs:
     reset_button = (By.XPATH, "//button/span[text()='重置']")
 
     # 全部资源统计
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[1]")
+    all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
 
     # 新分配待处理统计
-    allocated_to_be_process_count = (By.XPATH, "(//div[@class='count'])[2]")
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocation']/span/span")
 
     # 我的待跟进统计
-    my_following_count = (By.XPATH, "(//div[@class='count'])[3]")
+    my_following_count = (By.XPATH, "//div[@id='tab-overtime']/span/span")
 
     # 预约访（待办）统计
-    appointment_count = (By.XPATH, "(//div[@class='count'])[4]")
+    appointment_count = (By.XPATH, "//div[@id='tab-appointment']/span/span")
 
     # 资源列表-第一个资源-资源详情
     first_resource_detail = (By.XPATH, "(//i[@class='hifont hi-xiangqing list-opera-icon el-popover__reference'])[1]")
@@ -54,7 +49,8 @@ class OperationDepartPageLocs:
     first_resource_modify = (By.XPATH, "(//i[@class='hifont hi-xiugai list-opera-icon el-popover__reference'])[1]")
 
     # 资源列表-第一个资源-预约访
-    first_resource_appointment = (By.XPATH, "(//i[@class='hifont hi-yuyuefang list-opera-icon el-popover__reference'])[1]")
+    first_resource_appointment = (By.XPATH, "(//i[@class='hifont hi-yuyuefang list-opera-icon el-popover__reference'])[21]")
+    # first_resource_appointment = (By.CSS_SELECTOR, "i.hifont hi-yuyuefang list-opera-icon el-popover__reference>i")
 
 
 

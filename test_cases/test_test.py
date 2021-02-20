@@ -39,7 +39,10 @@ class test_add_resource(unittest.TestCase):
 
         resource_data = AddPage(self.driver).add_resource_data()
         resource_data = list(resource_data)
+        print(resource_data)
         resource_data.insert(1, 4)
+        print(resource_data)
+
         OperationPage(self.driver).add_resource()
         AddPage(self.driver).add_resource(*resource_data)
         time.sleep(2)
@@ -49,6 +52,8 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(int(f)-int(b), 0)
         self.assertEqual(int(g)-int(c), 0)
         self.assertEqual(int(h)-int(d), 0)
+
+
 
 
 

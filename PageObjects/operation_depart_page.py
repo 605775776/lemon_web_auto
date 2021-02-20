@@ -12,6 +12,7 @@ class OperationPage(BasePage):
     def enter_operation_page(self):
         self.click_element(iloc.entrance, ("首页-点击招生入口", "entrance"))
         self.click_element(iloc.my_resource, ("首页-点击我的资源", "my_resource"))
+        self.click_element(iloc.operation_depart, ("首页-点击运营部", "operation_depart"))
 
     def add_resource(self):
         self.click_element(loc.add_resource, ("首页-添加资源", "add_resource"))

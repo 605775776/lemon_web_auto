@@ -11,7 +11,7 @@ from test_data.resource_data import ResourceGenerator as rg
 class AddPage(BasePage):
 
 
-    def add_resource(self, student_name, resource_progress, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address):
+    def add_resource(self, student_name, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address, resource_progress=1):
 
         contact_name = student_name + '的父亲'
         self.input_text(loc.student_name, student_name, ("添加资源页面-输入学生姓名", 'student_name'))
@@ -35,8 +35,8 @@ class AddPage(BasePage):
         elif resource_progress == 5:
             self.click_element(loc.resource_progress_never, ("添加资源页面-资源进展-不再跟进/死单", 'resource_progress_never'))
 
-        self.click_element(loc.first_visit_date, ("添加资源页面-首次上门日期", 'first_visit_date'))
-        self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
+        # self.click_element(loc.first_visit_date, ("添加资源页面-首次上门日期", 'first_visit_date'))
+        # self.click_element(loc.first_visit_date_today, ("添加资源页面-首次上门日期选择今天", 'first_visit_date_today'))
         # self.click_element(loc.first_visit_date_yesterday, ("添加资源页面-首次上门日期选择昨天", 'first_visit_date_yesterday'))
 
         self.click_element(loc.late_visit_date, ("添加资源页面-最迟回访日期", "late_visit_date"))
@@ -76,8 +76,8 @@ class AddPage(BasePage):
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
         time.sleep(3)
-        self.get_element(oloc.operation_depart,
-                         ("添加资源页面-窗口滚动", 'operation_depart')).location_once_scrolled_into_view
+        self.get_element(oloc.tab_total,
+                         ("添加资源页面-窗口滚动", 'tab_total')).location_once_scrolled_into_view
         # js = "var q=document.documentElement.scrollTop=0"
         # self.driver.execute_script(js)
         # js = "windows.scrollTo(0,0)"
