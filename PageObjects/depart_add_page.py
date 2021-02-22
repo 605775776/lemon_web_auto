@@ -4,7 +4,7 @@
 
 from PageLocators.add_page_locs import AddPageLocs as loc
 from Common.basepage import BasePage
-from test_data.resource_data import ResourceGenerator as rg
+from test_data.resource_generate import ResourceGenerator as rg
 
 class AddPage(BasePage):
 
@@ -41,8 +41,8 @@ class AddPage(BasePage):
         self.input_text(loc.resource_class, class_name, ("添加资源页面-输入年级", 'class_name'))
 
         self.click_element(loc.school, ("添加资源页面-选择就读学校", 'school'))
-        self.input_text(loc.school, school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
-        self.click_element(loc.school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
+        # self.input_text(loc.school, school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
+        self.click_element(loc.school_name, ("添加资源页面-点击列表返回第一个学校", 'school_name'))
 
         self.input_text(loc.resource_desc, resource_desc, ("添加资源页面-填写资源描述", 'resource_desc'))
 
@@ -84,7 +84,7 @@ class AddPage(BasePage):
         resource_data = (
             rg().studentNameGenerator(),
             rg().classNameGenerator(),
-            rg().schoolNameGenerator(),
+            # rg().schoolNameGenerator(),
             rg().resourceDescGenerator(),
             rg().phoneNORandomGenerator(),
             rg().contactDescGenerator(),

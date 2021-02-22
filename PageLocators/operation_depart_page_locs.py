@@ -126,6 +126,12 @@ class OperationDepartPageLocs:
     # 资源进展-已成单
     resource_progress_order = (By.XPATH, "//span[text()='已成单']")
 
+    first_resource_contact_name = (By.XPATH, "(((//tbody)[1]/tr)[1]/td)[1]/div")
+
+
+
+
+
 
 
 

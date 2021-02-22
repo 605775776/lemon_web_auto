@@ -15,7 +15,7 @@ from selenium import webdriver
 from PageObjects.operation_depart_page import OperationPage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
-from test_data import resource_data as rd
+from test_data import resource_generate as rd
 import ddt
 
 

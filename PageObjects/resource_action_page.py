@@ -54,9 +54,9 @@ class ResourceActionPage(BasePage):
     def modify(self):
         pass
 
-    def appointment(self):
-        appointment_object_1 = self.driver.find_element_by_xpath("//td/div").text
-        appointment_object = self.get_ele_text(aloc.appointment_object_first_contact_name, ("获取列表第一个资源作为约访对象", 'appointment_object'))
+    def appointment(self, appointment_object):
+        # appointment_object_1 = self.driver.find_element_by_xpath("//td/div").text
+        # appointment_object = self.get_ele_text(aloc.appointment_object_first_contact_name, ("获取列表第一个资源作为约访对象", 'appointment_object'))
 
         self.click_element(loc.first_resource_appointment, ("运营部首页-点击第一个资源的预约访元素", 'first_resource_appointment'))
         self.click_element(aloc.appointment_school, ("预约访页面-约访地点元素", 'appointment_school'))

@@ -2,6 +2,7 @@
 # 2021/1/19 10:08
 # Author:dsw
 import time
+import argparse
 import unittest
 from lxml import etree
 from PageObjects.login_page import LoginPage
@@ -12,7 +13,22 @@ from PageObjects.resource_action_page import ResourceActionPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
+from test_data import resource_generate as rg
 import ddt
+
+from test_data.resource_generate import ResourceGenerator
+
+
+def repeat(times):
+    def repeatHelper(f):
+        def callHelper(*args):
+            for i in range(0, times):
+                f(*args)
+
+        return callHelper
+
+    return repeatHelper
+
 
 
 @ddt.ddt
@@ -32,19 +48,24 @@ class test_add_resource(unittest.TestCase):
     def tearDownClass(self):
         self.driver.quit()
 
+    # @repeat(10)
     def test_add_resource(self):
         time.sleep(2)
         # 获取当前统计数据
         (a, b, c, d) = OperationPage(self.driver).get_resource_count()
 
-        # 创建资源信息
-        resource_data = AddPage(self.driver).add_resource_data()
+        # # 创建资源信息
+        # resource_data = AddPage(self.driver).add_resource_data()
+
+        # data = ResourceGenerator().add_resource_data()
 
         # 点击添加资源
         OperationPage(self.driver).add_resource()
 
         # 添加资源
-        AddPage(self.driver).add_resource(*resource_data)
+        AddPage(self.driver).add_resource(*(rg.data))
+        # AddPage(self.driver).add_resource(*data)
+        # print(rg.resource_data)
 
         # 添加资源后统计数据
         (e, f, g, h) = OperationPage(self.driver).get_resource_count()
@@ -82,7 +103,7 @@ class test_add_resource(unittest.TestCase):
         # 获取当前统计数据
         time.sleep(2)
         (a, b, c, d) = OperationPage(self.driver).get_resource_count()
-        ResourceActionPage(self.driver).appointment()
+        ResourceActionPage(self.driver).appointment(rg.data[0])
 
         # 跟进操作后统计数据
         time.sleep(2)
@@ -93,3 +114,10 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(int(f)-int(b), 0)
         self.assertEqual(int(g)-int(c), 0)
         self.assertEqual(int(h)-int(d), 1)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+

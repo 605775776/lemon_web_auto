@@ -11,7 +11,7 @@ from PageObjects.index_page import IndexPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
-from test_data import resource_data as rd
+from test_data import resource_generate as rd
 import ddt
 
 

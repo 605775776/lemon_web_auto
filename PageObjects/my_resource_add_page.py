@@ -6,12 +6,12 @@ import time
 from PageLocators.add_page_locs import AddPageLocs as loc
 from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as oloc
 from Common.basepage import BasePage
-from test_data.resource_data import ResourceGenerator as rg
+from test_data.resource_generate import ResourceGenerator as rg
 
 class AddPage(BasePage):
 
 
-    def add_resource(self, student_name, class_name, school_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address, resource_progress=1):
+    def add_resource(self, student_name, class_name, resource_desc, contact_phone, contact_remark, resource_birthday, recommend_teacher, resource_address, resource_progress=1):
 
         contact_name = student_name + '的父亲'
         self.input_text(loc.student_name, student_name, ("添加资源页面-输入学生姓名", 'student_name'))
@@ -48,8 +48,8 @@ class AddPage(BasePage):
         self.input_text(loc.resource_class, class_name, ("添加资源页面-输入年级", 'class_name'))
 
         self.click_element(loc.school, ("添加资源页面-选择就读学校", 'school'))
-        self.input_text(loc.school, school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
         self.click_element(loc.school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
+        # self.click_element(loc.school_name, ("添加资源页面-输入厦门市实验中学", 'school_name'))
 
         self.input_text(loc.resource_desc, resource_desc, ("添加资源页面-填写资源描述", 'resource_desc'))
 
@@ -86,7 +86,7 @@ class AddPage(BasePage):
         resource_data = (
             rg().studentNameGenerator(),
             rg().classNameGenerator(),
-            rg().schoolNameGenerator(),
+            # rg().schoolNameGenerator(),
             rg().resourceDescGenerator(),
             rg().phoneNORandomGenerator(),
             rg().contactDescGenerator(),

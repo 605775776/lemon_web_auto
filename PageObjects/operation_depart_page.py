@@ -4,12 +4,15 @@
 
 from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as loc
 from PageLocators.index_page_locs import IndexPageLocs as iloc
+from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as oloc
 from Common.basepage import BasePage
 
 
 class OperationPage(BasePage):
 
     def add_resource(self):
+        a = self.get_element(oloc.first_resource_contact_name, ("", ''))
+        print(a.text)
         self.click_element(loc.add_resource, ("首页-添加资源", "add_resource"))
 
     # 我的资源-运营部
