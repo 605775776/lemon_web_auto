@@ -34,7 +34,7 @@ class test_add_resource(unittest.TestCase):
     def tearDownClass(self):
         self.driver.quit()
 
-    def test_add_resource(self):
+    def test_01add_resource(self):
         time.sleep(2)
         # 获取当前统计数据
         (a1, b1, c1, d1, e1) = MyResourcePage(self.driver).get_my_depart_count()
@@ -72,11 +72,24 @@ class test_add_resource(unittest.TestCase):
         print(msg_fail)
         self.assertEqual(msg_fail, "资源已分配到校区，不允许再次分配")
 
-        # ResourceActionPage(self.driver).click_allocate_branch()
-        # time.sleep(2)
-        # msg = self.driver.find_element_by_xpath("//p[@class='el-message__content']").text
-        # print(msg)
-        # self.assertEqual(msg, "资源已分配到校区，不允许再次分配")
+    def test_02add_appointment(self):
+
+        # 获取当前统计数据
+        time.sleep(2)
+        (a1, b1, c1, d1, e1) = MyResourcePage(self.driver).get_my_depart_count()
+        ResourceActionPage(self.driver).appointment(rg.data[0])
+
+        # 添加预约访后统计数据
+        time.sleep(2)
+        (a2, b2, c2, d2, e2) = MyResourcePage(self.driver).get_my_depart_count()
+        print(a1, b1, c1, d1, e1)
+        print(a2, b2, c2, d2, e2)
+        # 断言
+        self.assertEqual(int(a2)-int(a1), 0)
+        self.assertEqual(int(b2)-int(b1), 0)
+        self.assertEqual(int(c2)-int(c1), 0)
+        self.assertEqual(int(d2)-int(d1), 0)
+        self.assertEqual(int(e2)-int(e1), 1)
 
 
 

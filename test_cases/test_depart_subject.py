@@ -8,9 +8,11 @@ from PageObjects.index_page import IndexPage
 from PageObjects.my_resource_add_page import AddPage
 from selenium import webdriver
 
-from PageObjects.my_resource_page import OperationPage
+from PageObjects.my_resource_page import MyResourcePage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
+from test_data import resource_generate as rg
+
 import ddt
 
 
@@ -30,7 +32,9 @@ class test_add_resource(unittest.TestCase):
         self.driver.quit()
 
     def test_add_resource(self):
-        resource_data = AddPage(self.driver).add_resource_data()
-        OperationPage(self.driver).add_resource()
-        AddPage(self.driver).add_resource(*resource_data)
 
+        # 点击添加资源
+        MyResourcePage(self.driver).add_resource()
+
+        # 添加资源
+        AddPage(self.driver).add_resource(*rg.data)
