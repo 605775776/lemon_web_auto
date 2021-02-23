@@ -2,7 +2,7 @@
 # 2021/1/19 14:52
 # Author:dsw
 from selenium.webdriver.common.by import By
-class OperationDepartPageLocs:
+class MyResourcePageLocs:
 
 
     # 全部资源
@@ -30,29 +30,36 @@ class OperationDepartPageLocs:
     # 我的待跟进统计
     my_following_count = (By.XPATH, "//div[@id='tab-overtime']/span/span")
 
+    # 校区待跟进统计
+    branch_following_count = (By.XPATH, "//div[@id='tab-followUpPlanBeforeFuture3Days']/span/span")
+
     # 预约访（待办）统计
     appointment_count = (By.XPATH, "//div[@id='tab-appointment']/span/span")
 
     # 资源列表-第一个资源-资源详情
-    first_resource_detail = (By.XPATH, "(//i[@class='hifont hi-xiangqing list-opera-icon el-popover__reference'])[1]")
+    first_resource_detail = (By.XPATH, "(//i[@class='hifont hi-xiangqing list-opera-icon el-popover__reference'])[21]")
 
     # 资源列表-第一个资源-跟进
-    first_resource_follow = (By.XPATH, "(//i[@class='hifont hi-genjin list-opera-icon el-popover__reference'])[21]")
+    first_resource_follow = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[2]")
 
     # 资源列表-第一个资源-签约
-    first_resource_sign = (By.XPATH, "(//i[@class='hifont hi-qianyue list-opera-icon el-popover__reference'])[1]")
+    my_first_resource_sign = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[3]")
+    depart_first_resource_sign = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[4]")
 
     # 资源列表-第一个资源-试听
-    first_resource_prelisten = (By.XPATH, "(//i[@class='hifont hi-shiting list-opera-icon el-popover__reference'])[1]")
+    my_first_resource_prelisten = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[4]")
+    depart_first_resource_prelisten = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[5]")
 
     # 资源列表-第一个资源-修改
-    first_resource_modify = (By.XPATH, "(//i[@class='hifont hi-xiugai list-opera-icon el-popover__reference'])[1]")
+    my_first_resource_modify = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[5]")
+    depart_first_resource_modify = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[6]")
 
     # 资源列表-第一个资源-预约访
-    first_resource_appointment = (By.XPATH, "(//i[@class='hifont hi-yuyuefang list-opera-icon el-popover__reference'])[21]")
-    # first_resource_appointment = (By.CSS_SELECTOR, "i.hifont hi-yuyuefang list-opera-icon el-popover__reference>i")
+    my_first_resource_appointment = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[6]")
+    depart_first_resource_appointment = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[7]")
 
-
+    # 资源列表-第一个资源-分配校区
+    first_resource_allocate_branch = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[3]")
 
     # 关键词搜索
     key_search = (By.XPATH, "//div[@class='el-input el-input--small el-input--suffix']")
@@ -127,6 +134,15 @@ class OperationDepartPageLocs:
     resource_progress_order = (By.XPATH, "//span[text()='已成单']")
 
     first_resource_contact_name = (By.XPATH, "(((//tbody)[1]/tr)[1]/td)[1]/div")
+
+    # 已分配资源的提示语
+    allocated_msg = (By.XPATH, "//p[text()='资源已分配到校区，不允许再次分配']")
+
+
+
+
+
+
 
 
 

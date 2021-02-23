@@ -12,7 +12,7 @@ from PageObjects.index_page import IndexPage
 from PageObjects.my_resource_add_page import AddPage
 from selenium import webdriver
 
-from PageObjects.operation_depart_page import OperationPage
+from PageObjects.my_resource_page import MyResourcePage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
 from test_data import resource_generate as rd
@@ -32,9 +32,9 @@ class test_add_resource(unittest.TestCase):
         self.driver.quit()
 
     def test_add_resource_progress_never(self):
-        OperationPage(self.driver).enter_operation_page()
+        MyResourcePage(self.driver).enter_operation_page()
         time.sleep(2)
-        (a, b, c, d) = OperationPage(self.driver).get_resource_count()
+        (a, b, c, d) = MyResourcePage(self.driver).get_resource_count()
         print(a, b, c, d)
 
         resource_data = AddPage(self.driver).add_resource_data()
@@ -43,10 +43,10 @@ class test_add_resource(unittest.TestCase):
         resource_data.insert(1, 4)
         print(resource_data)
 
-        OperationPage(self.driver).add_resource()
+        MyResourcePage(self.driver).add_resource()
         AddPage(self.driver).add_resource(*resource_data)
         time.sleep(2)
-        (e, f, g, h) = OperationPage(self.driver).get_resource_count()
+        (e, f, g, h) = MyResourcePage(self.driver).get_resource_count()
         print(e, f, g, h)
         self.assertEqual(int(e)-int(a), 1)
         self.assertEqual(int(f)-int(b), 0)

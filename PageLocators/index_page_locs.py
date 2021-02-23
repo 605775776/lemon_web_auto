@@ -26,6 +26,10 @@ class IndexPageLocs:
     depart_subject = (By.XPATH, "//a[@href='/crm/dept-resource/dis-dep']//span[text()='学科部']")
     # 部门资源-市场部
     depart_market = (By.XPATH, "//a[@href='/crm/dept-resource/marketdep']//span[text()='市场部']")
+
+    # 校区资源
+    branch_resource = (By.XPATH, "//a[@href='/crm/schoolresource']/li")
+
     # 资源转移
     resource_transfer = (By.XPATH, "//span[text()='资源转移']")
 
@@ -34,6 +38,9 @@ class IndexPageLocs:
 
     # 约访管理
     appointment_manage = (By.XPATH, "//span[text()='约访管理']")
+
+    # 校区
+    branch = (By.XPATH, "//span[@class='title']/following-sibling::span")
 
 
 

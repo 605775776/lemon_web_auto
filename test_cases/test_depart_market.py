@@ -8,7 +8,7 @@ from PageObjects.index_page import IndexPage
 from PageObjects.my_resource_add_page import AddPage
 from selenium import webdriver
 
-from PageObjects.operation_depart_page import OperationPage
+from PageObjects.my_resource_page import OperationPage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
 import ddt

@@ -8,7 +8,7 @@ from lxml import etree
 from PageObjects.login_page import LoginPage
 from PageObjects.index_page import IndexPage
 from PageObjects.my_resource_add_page import AddPage
-from PageObjects.operation_depart_page import OperationPage
+from PageObjects.my_resource_page import MyResourcePage
 from PageObjects.resource_action_page import ResourceActionPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
@@ -52,7 +52,7 @@ class test_add_resource(unittest.TestCase):
     def test_add_resource(self):
         time.sleep(2)
         # 获取当前统计数据
-        (a, b, c, d) = OperationPage(self.driver).get_resource_count()
+        (a, b, c, d) = MyResourcePage(self.driver).get_resource_count()
 
         # # 创建资源信息
         # resource_data = AddPage(self.driver).add_resource_data()
@@ -60,15 +60,15 @@ class test_add_resource(unittest.TestCase):
         # data = ResourceGenerator().add_resource_data()
 
         # 点击添加资源
-        OperationPage(self.driver).add_resource()
+        MyResourcePage(self.driver).add_resource()
 
         # 添加资源
-        AddPage(self.driver).add_resource(*(rg.data))
+        AddPage(self.driver).add_resource(*rg.data)
         # AddPage(self.driver).add_resource(*data)
         # print(rg.resource_data)
 
         # 添加资源后统计数据
-        (e, f, g, h) = OperationPage(self.driver).get_resource_count()
+        (e, f, g, h) = MyResourcePage(self.driver).get_resource_count()
         print(a, b, c, d)
         print(e, f, g, h)
 
@@ -82,14 +82,14 @@ class test_add_resource(unittest.TestCase):
 
         time.sleep(2)
         # 获取当前统计数据
-        (a, b, c, d) = OperationPage(self.driver).get_resource_count()
+        (a, b, c, d) = MyResourcePage(self.driver).get_resource_count()
 
         # 添加跟进 最迟回访日期选择日期下个月1号
 
         ResourceActionPage(self.driver).follow("沟通内容")
         time.sleep(2)
         # 跟进操作后统计数据
-        (e, f, g, h) = OperationPage(self.driver).get_resource_count()
+        (e, f, g, h) = MyResourcePage(self.driver).get_resource_count()
 
         print(a, b, c, d)
         print(e, f, g, h)
@@ -102,12 +102,12 @@ class test_add_resource(unittest.TestCase):
     def test_appointment(self):
         # 获取当前统计数据
         time.sleep(2)
-        (a, b, c, d) = OperationPage(self.driver).get_resource_count()
+        (a, b, c, d) = MyResourcePage(self.driver).get_resource_count()
         ResourceActionPage(self.driver).appointment(rg.data[0])
 
         # 跟进操作后统计数据
         time.sleep(2)
-        (e, f, g, h) = OperationPage(self.driver).get_resource_count()
+        (e, f, g, h) = MyResourcePage(self.driver).get_resource_count()
 
         # 断言
         self.assertEqual(int(e)-int(a), 0)

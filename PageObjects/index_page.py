@@ -40,5 +40,7 @@ class IndexPage(BasePage):
     def branch_resource(self):
         self.click_element(loc.branch_resource, ("首页-点击校区资源", "branch_resource"))
 
-
+    def get_current_branch(self):
+        branch = self.get_ele_text(loc.branch, ("获取右上角校区", 'branch'))
+        return branch
 

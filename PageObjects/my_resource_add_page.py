@@ -4,7 +4,7 @@
 import time
 
 from PageLocators.add_page_locs import AddPageLocs as loc
-from PageLocators.operation_depart_page_locs import OperationDepartPageLocs as oloc
+from PageLocators.my_resource_page_locs import MyResourcePageLocs as mloc
 from Common.basepage import BasePage
 from test_data.resource_generate import ResourceGenerator as rg
 
@@ -76,7 +76,7 @@ class AddPage(BasePage):
 
         self.click_element(loc.confirm_add, ("添加资源页面-确认添加", 'confirm_add'))
         time.sleep(3)
-        self.get_element(oloc.tab_total,
+        self.get_element(mloc.tab_total,
                          ("添加资源页面-窗口滚动", 'tab_total')).location_once_scrolled_into_view
         # js = "var q=document.documentElement.scrollTop=0"
         # self.driver.execute_script(js)
