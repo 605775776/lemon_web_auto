@@ -89,7 +89,7 @@ class ResourceActionPage(BasePage):
         self.click_element(aloc.confirm, ("预约访页面-确定按钮", 'confirm'))
 
 
-
+# -----------------------部门资源页面-----------------------
     def allocate_branch(self, branch):
 
         self.input_text(alloc.input_branch, branch, ("分配校区页面-归属校区输入", 'input_branch'))
@@ -97,10 +97,13 @@ class ResourceActionPage(BasePage):
         self.click_element(alloc.confirm_button, ("分配校区页面-确认按钮", 'confirm_button'))
 
     def click_allocate_branch(self):
-        self.click_element(mloc.first_resource_allocate_branch, ("资源列表-点击第一个资源分配校区", 'first_resource_allocate_branch'))
-    def click_modify_resource(self):
-        self.click_element(dloc.allocate_branch)
+        self.click_element(dloc.allocate_branch, ("资源列表-点击第一个资源分配校区", 'first_resource_allocate_branch'))
 
+    def click_modify_resource(self):
+        self.click_element(dloc.modify_resource, ("资源列表-点击第一个资源修改", 'modify_resource'))
+
+    def click_delete_resource(self):
+        self.click_element(dloc.delete_resource, ("资源列表-点击第一个删除资源", 'delete_resource'))
 
     def batch_allocate_branch(self):
         time.sleep(2)
