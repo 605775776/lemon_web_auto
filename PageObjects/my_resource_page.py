@@ -17,7 +17,8 @@ class MyResourcePage(BasePage):
     # 我的资源-运营部统计
     def get_resource_count(self):
         all_resource_count = self.get_ele_text(mloc.all_resource_count, ("运营部-全部资源统计", "all_resource_count"))
-        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count, ("运营部-新分配待处理统计", "allocated_to_be_process_count"))
+        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count,
+                                                          ("运营部-新分配待处理统计", "allocated_to_be_process_count"))
         my_following_count = self.get_ele_text(mloc.my_following_count, ("运营部-待跟进统计", "my_following_count"))
         appointment_count = self.get_ele_text(mloc.appointment_count, ("运营部-预约访统计", "appointment_count"))
         return all_resource_count, allocated_to_be_process_count, my_following_count, appointment_count
@@ -25,15 +26,20 @@ class MyResourcePage(BasePage):
     # 我的资源-学科部/市场部统计
     def get_my_depart_count(self):
         all_resource_count = self.get_ele_text(mloc.all_resource_count, ("学科部/市场部-全部资源统计", "all_resource_count"))
-        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count, ("学科部/市场部-新分配待处理统计", "allocated_to_be_process_count"))
+        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count,
+                                                          ("学科部/市场部-新分配待处理统计", "allocated_to_be_process_count"))
         my_following_count = self.get_ele_text(mloc.my_following_count, ("学科部/市场部-待跟进统计", "my_following_count"))
-        branch_following_count = self.get_ele_text(mloc.branch_following_count, ("学科部/市场部-校区待跟进统计", 'branch_following_count'))
+        branch_following_count = self.get_ele_text(mloc.branch_following_count,
+                                                   ("学科部/市场部-校区待跟进统计", 'branch_following_count'))
         appointment_count = self.get_ele_text(mloc.appointment_count, ("学科部/市场部-预约访统计", "appointment_count"))
         return all_resource_count, allocated_to_be_process_count, my_following_count, branch_following_count, appointment_count
 
     # 部门资源-学科部/市场部统计
     def get_depart_count(self):
         all_resource_count = self.get_ele_text(mloc.all_resource_count, ("学科部/市场部-全部资源统计", "all_resource_count"))
-        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count, ("学科部/市场部-已分配待处理统计", "allocated_to_be_process_count"))
+        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count,
+                                                          ("学科部/市场部-已分配待处理统计", "allocated_to_be_process_count"))
+        unallocated_branch_resource_count = self.get_ele_text(mloc.unallocated_count,
+                                                              ("学科部/市场部-未分配校区资源统计", 'unallocated_count'))
 
-        return all_resource_count, allocated_to_be_process_count
+        return all_resource_count, allocated_to_be_process_count, unallocated_branch_resource_count

@@ -3,29 +3,69 @@
 # Author:dsw
 
 from selenium.webdriver.common.by import By
-class OperationDepartPageLocs:
 
 
-    # 学科部-全部资源
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[1]")
+class DepartPageLocs:
+    # --------------------------全部资源页面--------------------------
+    # 全部资源页面
+    all_resource_button = (By.XPATH, "//div[@id='tab-total']")
 
-    # 学科部-新分配待处理
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[2]")
+    # 已分配待处理页面
+    new_Allocated_To_Branch = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']")
 
-    # 学科部-我的待跟进
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[3]")
+    # 全部资源统计
+    all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
 
-    # 学科部-校区待跟进
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[4]")
+    # 已分配待处理统计
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']//span/span[@class='font-bold']")
 
-    # 学科部-预约访待办
-    all_resource_count = (By.XPATH, "(//div[@class='count'])[5]")
+    # 资源未分配校区统计
+    unallocated_count = (By.XPATH, "//div[@class='message-tip']/span")
 
-    #  校长分配校区归属人-全部按钮
-    all_resource_radio = (By.XPATH, "(//span[@class='el-radio__inner'])[1]")
+    # 添加资源按钮
+    add_resource = (By.XPATH, "//span[text()='添加资源']")
 
-    #  校长分配校区归属人-未分配按钮
-    all_resource_radio = (By.XPATH, "(//span[@class='el-radio__inner'])[2]")
+    # 批量分配部门归属人
+    batch_allocate_depart_belonger = (By.XPATH, "//span[text()='批量分配部门归属人']")
 
-    #  校长分配校区归属人-已分配按钮
-    all_resource_radio = (By.XPATH, "(//span[@class='el-radio__inner'])[3]")
+    # 批量分配校区
+    batch_allocate_branch = (By.XPATH, "//span[text()='批量分配部门归属人']")
+
+    # 导入
+    import_button = (By.XPATH, "//span[text()='导入']")
+
+    # 导出
+    export_button = (By.XPATH, "//span[text()='导出']")
+
+    # 资源列表-第一个资源-资源详情
+    first_resource_detail = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[1]")
+
+    # 资源列表-第一个资源-分配部门归属人
+    allocate_depart_belonger = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[2]")
+
+    # 资源列表-第一个资源-分配校区
+    allocate_branch = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[3]")
+
+    # 资源列表-第一个资源-修改
+    modify_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[4]")
+    # depart_first_resource_modify = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[5]")
+
+    # 资源列表-第一个资源-删除
+    delete_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[5]")
+
+    # 资源列表-选中第一个资源checkbox
+    checkbox_selected = (By.XPATH, "((//table[@class='el-table__body'])[3]//input)[1]")
+
+# ---------------------已分配待处理页面------------------
+
+    # 资源列表-第一个资源-资源详情
+    first_resource_detail = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[1]")
+
+    # 资源列表-第一个资源-分配部门归属人
+    allocate_depart_belonger = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[2]")
+
+    # 资源列表-第一个资源-修改
+    not_allowed_modify_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[3]")
+
+    # 资源列表-第一个资源-删除
+    not_allowed_delete_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[4]")

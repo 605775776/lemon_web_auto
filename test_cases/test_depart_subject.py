@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/2/20 16:50
 # Author:dsw
-
+import time
 import unittest
 from PageObjects.login_page import LoginPage
 from PageObjects.index_page import IndexPage
@@ -32,9 +32,22 @@ class test_add_resource(unittest.TestCase):
         self.driver.quit()
 
     def test_add_resource(self):
+        # 获取当前统计数据
+        time.sleep(2)
+        (a1, b1, c1) = MyResourcePage(self.driver).get_depart_count()
 
         # 点击添加资源
         MyResourcePage(self.driver).add_resource()
 
         # 添加资源
         AddPage(self.driver).add_resource(*rg.data)
+
+        time.sleep(2)
+        (a2, b2, c2) = MyResourcePage(self.driver).get_depart_count()
+
+        print(a1, b1, c1)
+        print(a2, b2, c2)
+
+        self.assertEqual(int(a2) - int(a1), 1)
+        self.assertEqual(int(b2) - int(b1), 0)
+        self.assertEqual(int(c2) - int(c1), 1)

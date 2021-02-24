@@ -25,7 +25,7 @@ class MyResourcePageLocs:
     all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
 
     # 新分配待处理统计
-    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocation']/span/span")
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']/span/span")
 
     # 我的待跟进统计
     my_following_count = (By.XPATH, "//div[@id='tab-overtime']/span/span")
@@ -36,8 +36,9 @@ class MyResourcePageLocs:
     # 预约访（待办）统计
     appointment_count = (By.XPATH, "//div[@id='tab-appointment']/span/span")
 
+
     # 资源列表-第一个资源-资源详情
-    first_resource_detail = (By.XPATH, "(//i[@class='hifont hi-xiangqing list-opera-icon el-popover__reference'])[21]")
+    first_resource_detail = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[1]")
 
     # 资源列表-第一个资源-跟进
     first_resource_follow = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[2]")
@@ -62,7 +63,7 @@ class MyResourcePageLocs:
     first_resource_allocate_branch = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[3]")
 
     # 关键词搜索
-    key_search = (By.XPATH, "//div[@class='el-input el-input--small el-input--suffix']")
+    key_search = (By.XPATH, "//label[text()='关键词搜索']/following-sibling::div//input")
 
     # 按联系电话
     search_by_phone = (By.XPATH, "//span[text()='按联系电话']")
@@ -137,6 +138,8 @@ class MyResourcePageLocs:
 
     # 已分配资源的提示语
     allocated_msg = (By.XPATH, "//p[text()='资源已分配到校区，不允许再次分配']")
+
+
 
 
 
