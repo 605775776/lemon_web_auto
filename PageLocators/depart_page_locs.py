@@ -29,7 +29,7 @@ class DepartPageLocs:
     batch_allocate_depart_belonger = (By.XPATH, "//span[text()='批量分配部门归属人']")
 
     # 批量分配校区
-    batch_allocate_branch = (By.XPATH, "//span[text()='批量分配部门归属人']")
+    batch_allocate_branch = (By.XPATH, "//span[text()='批量分配校区']")
 
     # 导入
     import_button = (By.XPATH, "//span[text()='导入']")
@@ -54,7 +54,7 @@ class DepartPageLocs:
     delete_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[5]")
 
     # 资源列表-选中第一个资源checkbox
-    checkbox_selected = (By.XPATH, "((//table[@class='el-table__body'])[3]//input)[1]")
+    checkbox_selected = (By.XPATH, "(//table[@class='el-table__body'])[2]//label[1]")
 
 # ---------------------已分配待处理页面------------------
 

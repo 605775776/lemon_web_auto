@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/2/5 15:50
 # Author:dsw
-
+import time
 
 from Common.basepage import BasePage
 from PageLocators.my_resource_page_locs import MyResourcePageLocs as mloc
@@ -9,6 +9,8 @@ from PageLocators.resource_detail_page_locs import ResourceDetailPageLocs as rlo
 from PageLocators.follow_page_locs import FollowPageLocs as floc
 from PageLocators.add_appointment_page_locs import AddAppointmentPageLocs as aloc
 from PageLocators.allocate_page_locs import AllocatePageLocs as alloc
+from PageLocators.depart_page_locs import DepartPageLocs as dloc
+from PageLocators.index_page_locs import IndexPageLocs as iloc
 
 
 class ResourceActionPage(BasePage):
@@ -93,6 +95,43 @@ class ResourceActionPage(BasePage):
         self.input_text(alloc.input_branch, branch, ("分配校区页面-归属校区输入", 'input_branch'))
         self.click_element(alloc.selected_branch, ("分配校区页面-点击返回列表元素", 'selected_branch'))
         self.click_element(alloc.confirm_button, ("分配校区页面-确认按钮", 'confirm_button'))
+
     def click_allocate_branch(self):
         self.click_element(mloc.first_resource_allocate_branch, ("资源列表-点击第一个资源分配校区", 'first_resource_allocate_branch'))
+    def click_modify_resource(self):
+        self.click_element(dloc.allocate_branch)
 
+
+    def batch_allocate_branch(self):
+        time.sleep(2)
+        a1, b1, c1 = self.get_depart_count()
+        self.click_element(dloc.checkbox_selected, ("资源列表-点击第一个资源的checkbox", 'checkbox_selected'))
+        self.click_element(dloc.batch_allocate_branch, ("批量分配校区", 'batch_allocate_branch'))
+        branch = self.get_ele_text(iloc.branch, ("获取右上角校区", 'branch'))
+        self.input_text(alloc.input_branch, branch, ("输入右上角校区", 'input_branch'))
+        self.click_element(alloc.selected_branch, ("点击下拉列表返回校区", 'selected_branch'))
+        self.click_element(alloc.confirm_button, ("点击确认按钮", 'confirm_button'))
+        time.sleep(2)
+        a2, b2, c2 = self.get_depart_count()
+        return int(a2)-int(a1), int(b2)-int(b1), int(c2)-int(c1)
+
+    # 部门资源-学科部/市场部统计
+    def get_depart_count(self):
+        all_resource_count = self.get_ele_text(dloc.all_resource_count, ("学科部/市场部-全部资源统计", "all_resource_count"))
+        has_allocated_to_be_process_count = self.get_ele_text(dloc.allocated_to_be_process_count,
+                                                              ("学科部/市场部-已分配待处理统计", "allocated_to_be_process_count"))
+        unallocated_branch_resource_count = self.get_ele_text(dloc.unallocated_count,
+                                                              ("学科部/市场部-未分配校区资源统计", 'unallocated_count'))
+
+        return all_resource_count, has_allocated_to_be_process_count, unallocated_branch_resource_count
+
+
+
+
+        # wait_allocate_resource_count = int((self.get_ele_text(alloc.wait_allocate_resource_count_str, ("待分配资源数量", 'wait_allocate_resource_count_str')))[0])
+        # allocated_resource_count = int(self.get_ele_text(alloc.allocated_resource_count_str, ("已分配资源数量统计", 'allocated_resource_count_str'))[0])
+        # a = int((self.get_ele_text(alloc.selected_resource_count, ("已选资源数量统计", 'selected_resource_count')))[2: -11])
+        #
+        # print(wait_allocate_resource_count)
+        # print(allocated_resource_count)
+        # print(a)

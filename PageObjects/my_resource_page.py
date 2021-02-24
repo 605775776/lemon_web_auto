@@ -4,6 +4,7 @@
 
 from PageLocators.my_resource_page_locs import MyResourcePageLocs as mloc
 from PageLocators.index_page_locs import IndexPageLocs as iloc
+from PageLocators.depart_page_locs import DepartPageLocs as dloc
 from Common.basepage import BasePage
 
 
@@ -34,12 +35,4 @@ class MyResourcePage(BasePage):
         appointment_count = self.get_ele_text(mloc.appointment_count, ("学科部/市场部-预约访统计", "appointment_count"))
         return all_resource_count, allocated_to_be_process_count, my_following_count, branch_following_count, appointment_count
 
-    # 部门资源-学科部/市场部统计
-    def get_depart_count(self):
-        all_resource_count = self.get_ele_text(mloc.all_resource_count, ("学科部/市场部-全部资源统计", "all_resource_count"))
-        allocated_to_be_process_count = self.get_ele_text(mloc.allocated_to_be_process_count,
-                                                          ("学科部/市场部-已分配待处理统计", "allocated_to_be_process_count"))
-        unallocated_branch_resource_count = self.get_ele_text(mloc.unallocated_count,
-                                                              ("学科部/市场部-未分配校区资源统计", 'unallocated_count'))
 
-        return all_resource_count, allocated_to_be_process_count, unallocated_branch_resource_count
