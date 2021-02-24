@@ -25,35 +25,30 @@ class AddPageLocs:
     # 来源渠道
     source_channel = (By.XPATH, "//input[@placeholder='请选择来源渠道']")
 
-    # 来源渠道-外呼中心 列表返回的第一个 [last()]
-    # source_channel_1 = (By.XPATH, "//li/span[text()='外呼中心']")
-    # source_channel_1 = (By.XPATH, "(//body/div)[3]//li[10]/span")
+    # 来源渠道 列表返回的第一个 [last()]
     source_channel_1 = (By.XPATH, "(//body/div)[last()]//li/span")
-    # 来源渠道-营销短信
-    source_channel_2 = (By.XPATH, "//li/span[text()='营销短信']")
-    # 来源渠道-官网/微信
-    source_channel_3 = (By.XPATH, "//li/span[text()='官网/微信']")
-    # 来源渠道-宣传单
-    source_channel_4 = (By.XPATH, "//li/span[text()='宣传单']")
-    # 来源渠道-户外广告
-    source_channel_5 = (By.XPATH, "//li/span[text()='户外广告']")
-    # 来源渠道-在读
-    source_channel_6 = (By.XPATH, "//li/span[text()='在读']")
-    # 来源渠道-亲朋好友
-    source_channel_7 = (By.XPATH, "//li/span[text()='亲朋好友']")
-    # 来源渠道-114查询
-    source_channel_8 = (By.XPATH, "//li/span[text()='114查询']")
-    # 来源渠道-老学员介绍
-    source_channel_9 = (By.XPATH, "//li/span[text()='老学员介绍']")
-    # 来源渠道-沉睡/结课
-    source_channel_10 = (By.XPATH, "//li/span[text()='沉睡/结课']")
-    # 来源渠道-报媒广告
-    source_channel_11 = (By.XPATH, "//li/span[text()='报媒广告']")
-    # 来源渠道-其他业务线推荐
-    source_channel_12 = (By.XPATH, "//li/span[text()='其他业务线推荐']")
-
-    # 来源渠道-鼠标悬停
-    source_channel_hover = (By.XPATH, "//li[@class='el-select-dropdown__item hover']")
+    # 来源渠道-列表返回的第二个
+    source_channel_2 = (By.XPATH, "((//body/div)[last()]//li/span)[2]")
+    # 来源渠道-列表返回的第三个
+    source_channel_3 = (By.XPATH, "((//body/div)[last()]//li/span)[3]")
+    # 来源渠道-列表返回的第四个
+    source_channel_4 = (By.XPATH, "((//body/div)[last()]//li/span)[4]")
+    # 来源渠道-列表返回的第五个
+    source_channel_5 = (By.XPATH, "((//body/div)[last()]//li/span)[5]")
+    # 来源渠道-列表返回的第六个
+    source_channel_6 = (By.XPATH, "((//body/div)[last()]//li/span)[6]")
+    # 来源渠道-列表返回的第七个
+    source_channel_7 = (By.XPATH, "((//body/div)[last()]//li/span)[7]")
+    # 来源渠道-列表返回的第八个
+    source_channel_8 = (By.XPATH, "((//body/div)[last()]//li/span)[8]")
+    # 来源渠道-列表返回的第九个
+    source_channel_9 = (By.XPATH, "((//body/div)[last()]//li/span)[9]")
+    # 来源渠道-列表返回的第十个
+    source_channel_10 = (By.XPATH, "((//body/div)[last()]//li/span)[10]")
+    # 来源渠道-列表返回的第十一个
+    source_channel_11 = (By.XPATH, "((//body/div)[last()]//li/span)[11]")
+    # 来源渠道-列表返回的第十二个 可能没有
+    source_channel_12 = (By.XPATH, "((//body/div)[last()]//li/span)[12]")
 
     # 资源日期
     collect_date = (By.XPATH, "//input[@placeholder='选择日期时间']")
@@ -69,6 +64,7 @@ class AddPageLocs:
 
     # 资源质量
     resource_stars = (By.XPATH, "//span[@class='el-rate__item'][5]")
+
     # 资源进展
     resource_progress = (By.XPATH, "//input[@placeholder='请选择资源进展']")
 
@@ -99,7 +95,6 @@ class AddPageLocs:
     # 首次上门日期-一周前
     first_visit_date_last_week = (By.XPATH, "//button[text()='一周前']")
 
-
     # 最迟回访日期
     late_visit_date = (By.XPATH, "(//input[@placeholder='选择日期'])[2]")
 
@@ -111,13 +106,16 @@ class AddPageLocs:
 
     # 年级-小小班
     collect_grade_xxb = (By.XPATH, "//span[text()='小小班']")
+
     # 年级-高一
     collect_grade_senior = (By.XPATH, "(//body/div)[last()]//li[15]/span")
 
     # 班级
     resource_class = (By.XPATH, "//input[@placeholder='请填写班级,如五班']")
+
     # 就读学校
     school = (By.XPATH, "//input[@placeholder='请输入学校名称搜索']")
+
     # 就读学校 列表返回第一个
     school_name = (By.XPATH, "//body/div[last()]//ul/li/span")
 
@@ -129,33 +127,43 @@ class AddPageLocs:
 
     # 联系人关系
     contact_relationship = (By.XPATH, "(//input[@placeholder='请选择'])[1]")
+
     # 联系人关系-父亲
     contact_relationship_father = (By.XPATH, "//span[text()='父亲']")
+
     # 联系人关系-母亲
     contact_relationship_mother = (By.XPATH, "//span[text()='母亲']")
+
     # 联系人关系-亲戚
     contact_relationship_relation = (By.XPATH, "//span[text()='亲戚']")
+
     # 联系人关系-学员
     contact_relationship_self = (By.XPATH, "//span[text()='学员']")
+
     # 联系人关系-其他
     contact_relationship_other = (By.XPATH, "//span[text()='其他']")
 
     # 联系人姓名
     contact_name = (By.XPATH, "//input[@placeholder='请输入联系人姓名']")
+
     # 联系人手机/固话
     contact_phone = (By.XPATH, "//input[@placeholder='请输入联系手机/固话']")
+
     # 备注
     contact_remark = (By.XPATH, "//input[@placeholder='请输入备注']")
 
     # 性别-男
     resource_sex_male = (By.XPATH, "(//span[@class='el-radio__label'])[1]")
+
     # 性别-女
     resource_sex_female = (By.XPATH, "(//span[@class='el-radio__label'])[2]")
 
     # 生日
     resource_birthday = (By.XPATH, "(//input[@placeholder='选择日期'])[3]")
+
     # 推荐老师
     recommend_teacher = (By.XPATH, "//input[@placeholder='请输入老师姓名搜索']")
+
     # 推荐老师简称
     recommend_teacher_short = (By.XPATH, "//span[@class='small-font']")
 
@@ -164,8 +172,6 @@ class AddPageLocs:
 
     # 科目-数学
     intention_subject_math = (By.XPATH, "//span[text()='数学']")
-
-
 
     # 地址/校区
     resource_address = (By.XPATH, "//input[@placeholder='请填写地址/小区']")

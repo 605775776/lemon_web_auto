@@ -1,4 +1,3 @@
-
 from PageLocators.login_page_locs import LoginPageLocs as loc
 from Common.basepage import BasePage
 

@@ -9,7 +9,7 @@ class AddAppointmentPageLocs:
     # 约访校区
     appointment_school = (By.XPATH, "(//form[@class='el-form el-form--inline'])[2]//input[@placeholder='请选择校区']")
 
-    # 默认选中海沧未来海岸培英精品班校区
+    # 默认选中列表返回第一个校区
     appointment_school_selected = (By.XPATH, "(//body/div)[last()]//li/span")
 
     # 约访对象
@@ -17,7 +17,7 @@ class AddAppointmentPageLocs:
 
     # 默认约访对象为当前资源的联系人姓名
     appointment_object_first_contact_name = (By.XPATH, "((//tr[@class='el-table__row'])[1]//td)[1]/div")
-    # appointment_object_first_contact_name = (By.CSS_SELECTOR, "tr.el-table__row>td>div")
+
     # 约访日期
     appointment_date = (By.XPATH, "//input[@placeholder='请选择预约日期']")
 
@@ -25,7 +25,6 @@ class AddAppointmentPageLocs:
     appointment_date_selected= (By.XPATH, "//td[@class='available today']//span")
 
     # 约访日期选中下个月
-    # date_next_month = (By.CSS_SELECTOR, "div.el-date-picker__header>button:nth-child(4)>i")
     date_next_month = (By.XPATH, "//button[@aria-label='下个月']")
 
     # 约访日期选择下个月1号

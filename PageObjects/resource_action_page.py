@@ -13,6 +13,7 @@ from PageLocators.allocate_page_locs import AllocatePageLocs as alloc
 
 class ResourceActionPage(BasePage):
 
+
     def resource_detail(self, tabNo):
         self.click_element(mloc.first_resource_detail, ("运营部首页-第一个资源详情", 'first_resource_detail'))
         if tabNo == 1:
@@ -28,6 +29,7 @@ class ResourceActionPage(BasePage):
         elif tabNo == 6:
             self.click_element(rloc.order_info, ("资源详情页面-基本信息", 'order_info'))
 
+    # 资源跟进
     def follow(self, context):
         self.click_element(mloc.first_resource_follow, ("运营部首页-点击第一个资源跟进", 'first_resource_follow'))
         self.click_element(floc.follow_method, ("跟进页面-选择跟进方式", 'follow_method'))
@@ -46,18 +48,20 @@ class ResourceActionPage(BasePage):
 
         self.click_element(floc.confirm, ("跟进页面-确定", 'confirm_button'))
 
+    # 资源签约
     def sign(self):
         self.click_element(mloc.first_resource_sign, ("运营部首页-点击第一个资源签约", 'first_resource_sign'))
 
+    # 资源试听
     def listen(self):
         pass
 
+    # 修改资源
     def modify(self):
         pass
 
+    # 添加预约访
     def appointment(self, appointment_object):
-        # appointment_object_1 = self.driver.find_element_by_xpath("//td/div").text
-        # appointment_object = self.get_ele_text(aloc.appointment_object_first_contact_name, ("获取列表第一个资源作为约访对象", 'appointment_object'))
 
         self.click_element(mloc.depart_first_resource_appointment, ("运营部首页-点击第一个资源的预约访元素", 'first_resource_appointment'))
         self.click_element(aloc.appointment_school, ("预约访页面-约访地点元素", 'appointment_school'))
@@ -81,6 +85,8 @@ class ResourceActionPage(BasePage):
         self.input_text(aloc.custom_support, "需要优惠支持", ("自定义需求支持", 'custom_support'))
         self.input_text(aloc.remark, "补充说明", ("填写补充说明", 'remark'))
         self.click_element(aloc.confirm, ("预约访页面-确定按钮", 'confirm'))
+
+
 
     def allocate_branch(self, branch):
 

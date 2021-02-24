@@ -51,3 +51,4 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(int(a2) - int(a1), 1)
         self.assertEqual(int(b2) - int(b1), 0)
         self.assertEqual(int(c2) - int(c1), 1)
+
