@@ -25,7 +25,7 @@ class MyResourcePageLocs:
     all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
 
     # 新分配待处理统计
-    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']/span/span")
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocation']/span/span")
 
     # 我的待跟进统计
     my_following_count = (By.XPATH, "//div[@id='tab-overtime']/span/span")

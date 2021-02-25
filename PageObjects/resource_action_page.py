@@ -52,7 +52,7 @@ class ResourceActionPage(BasePage):
 
     # 资源签约
     def sign(self):
-        self.click_element(mloc.first_resource_sign, ("运营部首页-点击第一个资源签约", 'first_resource_sign'))
+        self.click_element(mloc.my_first_resource_sign, ("运营部首页-点击第一个资源签约", 'first_resource_sign'))
 
     # 资源试听
     def listen(self):

@@ -11,8 +11,6 @@ from Common.basepage import BasePage
 class MyResourcePage(BasePage):
 
     def add_resource(self):
-        a = self.get_element(mloc.first_resource_contact_name, ("", ''))
-        print(a.text)
         self.click_element(mloc.add_resource, ("首页-添加资源", "add_resource"))
 
     # 我的资源-运营部统计
