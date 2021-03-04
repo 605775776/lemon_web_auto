@@ -8,7 +8,7 @@ from PageObjects.login_page import LoginPage
 from PageObjects.my_resource_add_page import AddPage
 from PageObjects.resource_action_page import ResourceActionPage
 from selenium import webdriver
-from PageObjects.my_resource_page import OperationPage
+from PageObjects.my_resource_page import MyResourcePage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
 import ddt
@@ -31,11 +31,11 @@ class test_add_resource(unittest.TestCase):
     # 添加预约访
     def test_add_appointment(self):
 
-        OperationPage(self.driver).enter_operation_page()
+        MyResourcePage(self.driver).enter_operation_page()
 
         for i in range(1, 10):
             resource_data = AddPage(self.driver).add_resource_data()
-            OperationPage(self.driver).add_resource()
+            MyResourcePage(self.driver).add_resource()
             AddPage(self.driver).add_resource(*resource_data)
             ResourceActionPage(self.driver).appointment(resource_data[0])
             time.sleep(2)

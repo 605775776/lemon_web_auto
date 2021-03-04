@@ -42,6 +42,17 @@ class IndexPageLocs:
     # 校区
     branch = (By.XPATH, "//span[@class='title']/following-sibling::span")
 
+    # 教务中心
+    education_center = (By.XPATH, "//li//span[text()='教务中心']")
+    # 课程商品
+    course_product = (By.XPATH, "//li//span[text()='课程商品']")
+    # 1对1课程
+    one_to_one_course = (By.XPATH, "//li//span[text()='1对1课程']")
+    # 1对多课程
+    one_to_many_course = (By.XPATH, "//li//span[text()='1对多课程']")
+    # 教材商品
+
+
 
 
 

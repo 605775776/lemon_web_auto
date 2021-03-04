@@ -44,3 +44,21 @@ class IndexPage(BasePage):
         branch = self.get_ele_text(loc.branch, ("获取右上角校区", 'branch'))
         return branch
 
+
+    # 教务中心
+    def education_center(self):
+        self.click_element(loc.education_center, ("首页-点击教务中心", 'education_center'))
+
+    # 课程商品
+    def course_product(self):
+        self.click_element(loc.course_product, ("首页-点击课程管理", 'course_product'))
+
+    # 1对1课程
+    def ydy_course(self):
+        self.click_element(loc.one_to_one_course, ("首页-点击1对1课程", 'one_to_one_course'))
+
+    # 1对多课程
+    def ydd_course(self):
+        self.click_element(loc.one_to_many_course, ("首页-点击1对多课程", 'one_to_many_course'))
+
+
