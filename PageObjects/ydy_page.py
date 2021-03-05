@@ -10,14 +10,14 @@ from PageLocators.ydy_add_page_locs import YdyAddPageLocs as aloc
 class YdyPage(BasePage):
 
     # 添加课程
-    def add_course(self):
+    def add_course(self, course_name):
         time.sleep(2)
         count = self.get_ele_text(loc.count_str, ("课程数量", 'count_str'))
         print(count)
         count = int(count[2: -2])
         print(count)
         self.click_element(loc.add_course, ("添加课程", 'add_course'))
-        self.input_text(aloc.course_title, '222', ("输入课程名称", 'course_title'))
+        self.input_text(aloc.course_title, course_name, ("输入课程名称", 'course_title'))
         self.click_element(aloc.course_grade, ("输入年级", 'course_grade'))
         self.click_element(aloc.course_grade_senior, ("输入高一", 'course_grade_senior'))
         self.click_element(aloc.course_kind, ("课程类型", 'course_kind'))

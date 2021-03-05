@@ -10,6 +10,7 @@ from PageObjects.index_page import IndexPage
 from selenium import webdriver
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
+from test_data import course_info_generate as cig
 import ddt
 
 
@@ -33,7 +34,8 @@ class test_add_resource(unittest.TestCase):
     # 添加1对1课程
     def test_add_ydy_course(self):
         before_add_count = YdyPage(self.driver).course_count()
-        res = YdyPage(self.driver).add_course()
+        print(cig.course_name)
+        res = YdyPage(self.driver).add_course(cig.course_name)
         print(res)
         YdyPage(self.driver).return_button()
         after_add_count = YdyPage(self.driver).course_count()
