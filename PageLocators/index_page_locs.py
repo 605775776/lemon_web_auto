@@ -52,6 +52,19 @@ class IndexPageLocs:
     one_to_many_course = (By.XPATH, "//li//span[text()='1对多课程']")
     # 教材商品
 
+    # 校区切换
+    switch_branch = (By.XPATH, "//i[@class='hifont el-icon-arrow-down domn-icon']")
+
+    # 个性化校区-福州仓山个性化校区
+    gexinghua_branch = (By.XPATH, "//label[text()='福州仓山个性化校区']")
+
+    # 佳音校区-福州佳音钱塘校区
+    jiayin_branch = (By.XPATH, "//label[text()='福州佳音钱塘校区']")
+
+    # 培英班校区-厦门吕厝培英班校区
+    peiying_branch = (By.XPATH, "//label[text()='厦门吕厝培英班校区']")
+
+
 
 
 

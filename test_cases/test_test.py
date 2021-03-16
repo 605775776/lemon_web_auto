@@ -27,12 +27,14 @@ class test_add_resource(unittest.TestCase):
         self.driver.get(GD.login_url)
         self.driver.maximize_window()
         LoginPage(self.driver).login(*lds.success)
+        IndexPage(self.driver).entrance()
+        IndexPage(self.driver).my_resource()
+        IndexPage(self.driver).operation_depart()
 
     def tearDown(self):
         self.driver.quit()
 
     def test_add_resource_progress_never(self):
-        MyResourcePage(self.driver).enter_operation_page()
         time.sleep(2)
         (a, b, c, d) = MyResourcePage(self.driver).get_resource_count()
         print(a, b, c, d)

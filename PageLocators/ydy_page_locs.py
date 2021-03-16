@@ -120,4 +120,3 @@ class YdyPageLocs:
 
     # 课程数量统计
     count_str = (By.XPATH, "//span[@class='el-pagination__total']")
-

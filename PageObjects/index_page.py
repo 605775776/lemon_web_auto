@@ -61,4 +61,22 @@ class IndexPage(BasePage):
     def ydd_course(self):
         self.click_element(loc.one_to_many_course, ("首页-点击1对多课程", 'one_to_many_course'))
 
+    # 切换校区
+    def switch_branch(self, type):
+        self.click_element(loc.switch_branch, ("首页-切换校区", 'switch_branch'))
+        try:
+            if type == 1:
+                self.click_element(loc.gexinghua_branch, ("切换到个性化校区", 'gexinghua_branch'))
+            elif type == 2:
+                self.click_element(loc.jiayin_branch, ("切换到个性化校区", 'jiayin_branch'))
+            elif type == 3:
+                self.click_element(loc.peiying_branch, ("切换到个性化校区", 'peiying_branch'))
+        except:
+            raise Exception
+
+
+
+
+
+
 
