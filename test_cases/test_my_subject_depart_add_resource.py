@@ -26,6 +26,8 @@ class test_add_resource(unittest.TestCase):
         self.driver.get(GD.login_url)
         self.driver.maximize_window()
         LoginPage(self.driver).login(*lds.success)
+        IndexPage(self.driver).switch_branch(1)
+        time.sleep(2)
         IndexPage(self.driver).entrance()
         IndexPage(self.driver).my_resource()
         IndexPage(self.driver).my_subject_depart()
