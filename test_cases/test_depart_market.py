@@ -10,6 +10,7 @@ from PageObjects.my_resource_add_page import AddPage
 from PageObjects.my_resource_page import MyResourcePage
 from PageObjects.depart_resource_page import DepartResourcePage
 from PageObjects.resource_action_page import ResourceActionPage
+from PageObjects.branch_resource_page import BranchPage
 from test_data import Global_Datas as GD
 from test_data import login_datas as lds
 import ddt
@@ -68,23 +69,37 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(d2 - d1, 1)
 
         # 我的资源-市场部资源数量统计
-        IndexPage(self.driver).enter_my_resource_market_depart()
+        IndexPage(self.driver).my_market_depart()
         (n1, n2, n3, n4, n5, n6, n7) = MyResourcePage(self.driver).get_my_depart_count()
         print(n1, n2, n3, n4, n5, n6, n7)
+
+        # 部门资源添加资源后 我的资源市场部资源数量断言
         self.assertEqual(n1-m1, 1)
         self.assertEqual(n2-m2, 1)
         self.assertEqual(n3-m3, 1)
         self.assertEqual(n4-m4, 0)
         self.assertEqual(n5-m5, 0)
         self.assertEqual(n6-m6, 0)
-        self.assertEqual(n7-m7, 0)
+        self.assertEqual(n7-m7, 1)
 
     # 部门资源-分配校区及分配后被禁止操作用例
     def test_allocate_branch(self):
         # 获取当前校区
         branch = IndexPage(self.driver).get_current_branch()
+        (m1, m2, m3, m4, m5, m6, m7) = MyResourcePage(self.driver).get_my_depart_count()
+        IndexPage(self.driver).depart_market_depart()
+
         # 部门资源-市场部统计
         (a1, b1, c1, d1) = DepartResourcePage(self.driver).get_depart_count()
+
+        # 校区资源统计
+        IndexPage(self.driver).branch_resource()
+        (p1, p2, p3, p4) = BranchPage(self.driver).get_branch_resource_count()
+        self.assertEqual(p1, p4)
+
+
+
+        IndexPage(self.driver).depart_market_depart()
         # 分配资源
         ResourceActionPage(self.driver).allocate_branch(branch)
         time.sleep(2)
@@ -105,15 +120,42 @@ class test_add_resource(unittest.TestCase):
 
         # 已分配校区的资源 分配操作失败 提示消息断言
         ResourceActionPage(self.driver).click_allocate_branch()
-        allocate_branch_msg_fail = self.driver.find_element_by_xpath("//p[@class='el-message__content']").text
+        time.sleep(1)
+        allocate_branch_msg_fail = ResourceActionPage(self.driver).msg()
         self.assertEqual(allocate_branch_msg_fail, "资源已分配到校区，不允许再次分配")
 
         # 已分配校区的资源 修改操作失败 提示消息断言
         ResourceActionPage(self.driver).modify()
-        modify_msg_fail = self.driver.find_element_by_xpath("//p[@class='el-message__content']").text
-        self.assertEqual(modify_msg_fail, "资源已分配到校区，不允许修改")
+        time.sleep(1)
+        modify_msg_fail = ResourceActionPage(self.driver).msg()
+        self.assertEqual(modify_msg_fail, "资源已分配给校区，不允许修改")
 
         # 已分配校区的资源 删除操作失败 提示消息断言
         ResourceActionPage(self.driver).delete()
-        delete_msg_fail = self.driver.find_element_by_xpath("//p[@class='el-message__content']").text
-        self.assertEqual(delete_msg_fail, "资源已分配到校区，不允许删除")
+        time.sleep(1)
+        delete_msg_fail = ResourceActionPage(self.driver).msg()
+        self.assertEqual(delete_msg_fail, "资源已分配给校区，不允许删除")
+
+        # 分配后 我的资源-市场部资源数量统计
+        IndexPage(self.driver).my_market_depart()
+        (n1, n2, n3, n4, n5, n6, n7) = MyResourcePage(self.driver).get_my_depart_count()
+
+        # 部门资源分配资源后 我的资源市场部资源数量断言
+        self.assertEqual(n1-m1, 0)
+        self.assertEqual(n2-m2, 0)
+        self.assertEqual(n3-m3, 0)
+        self.assertEqual(n4-m4, 0)
+        self.assertEqual(n5-m5, 0)
+        self.assertEqual(n6-m6, 1)
+        self.assertEqual(n7-m7, 0)
+
+        # 分配后 校区资源数量统计
+        IndexPage(self.driver).branch_resource()
+        (q1, q2, q3, q4) = BranchPage(self.driver).get_branch_resource_count()
+
+        # 分配后 校区资源数量断言
+        self.assertEqual(q1-p1, 1)
+        self.assertEqual(q2-p2, 0)
+        self.assertEqual(q3-p3, 1)
+        self.assertEqual(q4-p4, 1)
+        self.assertEqual(q1, q4)

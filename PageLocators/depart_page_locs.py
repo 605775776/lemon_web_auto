@@ -73,3 +73,6 @@ class DepartPageLocs:
 
     # 资源列表-第一个资源-删除
     not_allowed_delete_resource = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[4]")
+
+    # toast消息文本
+    msg = (By.XPATH, "(//p[@class='el-message__content'])[last()]")

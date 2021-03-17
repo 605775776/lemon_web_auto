@@ -24,6 +24,9 @@ class BranchPageLocs:
     not_allocate_branch_belonger_count = (By.XPATH, "//div[@class='message-tip']/span")
     # 已分配待跟进统计
     allocated_to_follow_count = (By.XPATH, "//div[@id='tab-waitForFollowUp']//span[@class='font-bold']")
+
+    # 右下角共x条资源统计
+    foot_count = (By.XPATH, "//span[@class='el-pagination__total']")
     # 全部radio
     radio_1 = (By.XPATH, "(//span[@class='el-radio__label'])[1]")
     # 未分配校区归属人radio

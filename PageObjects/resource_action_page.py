@@ -15,7 +15,6 @@ from PageLocators.index_page_locs import IndexPageLocs as iloc
 
 class ResourceActionPage(BasePage):
 
-
     def resource_detail(self, tabNo):
         self.click_element(mloc.first_resource_detail, ("运营部首页-第一个资源详情", 'first_resource_detail'))
         if tabNo == 1:
@@ -65,7 +64,8 @@ class ResourceActionPage(BasePage):
     # 添加预约访
     def appointment(self, appointment_object):
 
-        self.click_element(mloc.depart_first_resource_appointment, ("运营部首页-点击第一个资源的预约访元素", 'first_resource_appointment'))
+        self.click_element(mloc.depart_first_resource_appointment,
+                           ("运营部首页-点击第一个资源的预约访元素", 'first_resource_appointment'))
         self.click_element(aloc.appointment_school, ("预约访页面-约访地点元素", 'appointment_school'))
         self.click_element(aloc.appointment_school_selected, ("预约访页面-默认选中第一个校区", 'appointment_school_selected'))
         self.input_text(aloc.appointment_object, appointment_object,
@@ -88,8 +88,7 @@ class ResourceActionPage(BasePage):
         self.input_text(aloc.remark, "补充说明", ("填写补充说明", 'remark'))
         self.click_element(aloc.confirm, ("预约访页面-确定按钮", 'confirm'))
 
-
-# -----------------------部门资源页面-----------------------
+    # -----------------------部门资源页面-----------------------
     def allocate_branch(self, branch):
 
         self.click_allocate_branch()
@@ -107,8 +106,6 @@ class ResourceActionPage(BasePage):
         self.click_element(dloc.delete_resource, ("资源列表-点击第一个删除资源", 'delete_resource'))
 
     def batch_allocate_branch(self):
-        time.sleep(2)
-        a1, b1, c1 = self.get_depart_count()
         self.click_element(dloc.checkbox_selected, ("资源列表-点击第一个资源的checkbox", 'checkbox_selected'))
         self.click_element(dloc.batch_allocate_branch, ("批量分配校区", 'batch_allocate_branch'))
         branch = self.get_ele_text(iloc.branch, ("获取右上角校区", 'branch'))
@@ -116,8 +113,6 @@ class ResourceActionPage(BasePage):
         self.click_element(alloc.selected_branch, ("点击下拉列表返回校区", 'selected_branch'))
         self.click_element(alloc.confirm_button, ("点击确认按钮", 'confirm_button'))
         time.sleep(2)
-        a2, b2, c2 = self.get_depart_count()
-        return int(a2)-int(a1), int(b2)-int(b1), int(c2)-int(c1)
 
     def modify(self):
         self.click_element(dloc.modify_resource, ("部门资源-点击修改资源", 'modify_resource'))
@@ -125,4 +120,6 @@ class ResourceActionPage(BasePage):
     def delete(self):
         self.click_element(dloc.delete_resource, ("部门资源-点击删除资源", 'delete_resource'))
 
-
+    def msg(self):
+        msg = self.get_ele_text(dloc.msg, ("获取操作提示文本", 'msg'))
+        return msg
