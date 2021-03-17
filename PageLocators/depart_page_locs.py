@@ -76,3 +76,6 @@ class DepartPageLocs:
 
     # toast消息文本
     msg = (By.XPATH, "(//p[@class='el-message__content'])[last()]")
+
+    # tips提示消息文本
+    tips = (By.XPATH, "//div[@class='el-form-item__error']")

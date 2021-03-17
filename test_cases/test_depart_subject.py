@@ -56,11 +56,11 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(int(c2) - int(c1), 1)
 
 
-    def test_batch_allocate_branch(self):
-        # 获取当前统计数据
-
-        a, b, c = ResourceActionPage(self.driver).batch_allocate_branch()
-        self.assertEqual(a, 0)
-        self.assertEqual(b, 1)
-        self.assertEqual(c, -1)
+    # def test_batch_allocate_branch(self):
+    #     # 获取当前统计数据
+    #
+    #     a, b, c = ResourceActionPage(self.driver).batch_allocate_branch()
+    #     self.assertEqual(a, 0)
+    #     self.assertEqual(b, 1)
+    #     self.assertEqual(c, -1)
 

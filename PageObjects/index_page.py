@@ -28,12 +28,12 @@ class IndexPage(BasePage):
     # 我的资源-市场部页面
     def my_market_depart(self):
         self.click_element(loc.my_market_depart, ("首页-点击市场部", 'my_market_depart'))
-        time.sleep(1)
+        time.sleep(2)
 
     # 部门资源
     def depart_resource(self):
         self.click_element(loc.depart_resource, ("首页-点击部门资源", "department_resource"))
-        time.sleep(1)
+        time.sleep(2)
 
     # 部门资源-学科部
     def depart_subject_depart(self):

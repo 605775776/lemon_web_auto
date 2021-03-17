@@ -40,6 +40,7 @@ class AddPage(BasePage):
         # self.click_element(loc.first_visit_date_yesterday, ("添加资源页面-首次上门日期选择昨天", 'first_visit_date_yesterday'))
 
         self.click_element(loc.late_visit_date, ("添加资源页面-最迟回访日期", "late_visit_date"))
+        time.sleep(1)
         self.click_element(loc.late_visit_date_today, ("添加资源页面-最迟回访日期选择今天", "late_visit_date_today"))
 
         self.click_element(loc.collect_grade, ("添加资源页面-录入年级", "collect_grade"))

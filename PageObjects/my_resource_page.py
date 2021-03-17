@@ -20,7 +20,9 @@ class MyResourcePage(BasePage):
                                                           ("运营部-新分配待处理统计", "allocated_to_be_process_count")))
         my_following_count = int(self.get_ele_text(mloc.my_following_count, ("运营部-待跟进统计", "my_following_count")))
         appointment_count = int(self.get_ele_text(mloc.appointment_count, ("运营部-预约访统计", "appointment_count")))
-        return all_resource_count, allocated_to_be_process_count, my_following_count, appointment_count
+        foot_count = int(self.get_ele_text(mloc.foot_count, ("运营部-共x条资源统计", 'foot_count'))[2: -2])
+
+        return all_resource_count, allocated_to_be_process_count, my_following_count, appointment_count, foot_count
 
     # 我的资源-学科部/市场部统计
     def get_my_depart_count(self):
@@ -31,8 +33,8 @@ class MyResourcePage(BasePage):
         branch_following_count = int(self.get_ele_text(mloc.branch_following_count,
                                                    ("学科部/市场部-校区待跟进统计", 'branch_following_count')))
         appointment_count = int(self.get_ele_text(mloc.appointment_count, ("学科部/市场部-预约访统计", "appointment_count")))
-        unallocate_branch_belonger = int(self.get_ele_text(mloc.unallocate_branch_belonger, ("学科部/市场部-未分配校区归属人统计", 'unallocate_branch_belonger')))
-        foot_resource = int(self.get_ele_text(mloc.foot_count, ("学科部/市场部-共x条资源统计", 'foot_count'))[2: -2])
-        return all_resource_count, allocated_to_be_process_count, my_following_count, branch_following_count, appointment_count, unallocate_branch_belonger, foot_resource
+        unallocated_branch_belonger = int(self.get_ele_text(mloc.unallocate_branch_belonger, ("学科部/市场部-未分配校区归属人统计", 'unallocate_branch_belonger')))
+        foot_count = int(self.get_ele_text(mloc.foot_count, ("学科部/市场部-共x条资源统计", 'foot_count'))[2: -2])
+        return all_resource_count, allocated_to_be_process_count, my_following_count, branch_following_count, appointment_count, unallocated_branch_belonger, foot_count
 
 

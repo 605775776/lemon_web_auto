@@ -11,6 +11,7 @@ from PageLocators.add_appointment_page_locs import AddAppointmentPageLocs as alo
 from PageLocators.allocate_page_locs import AllocatePageLocs as alloc
 from PageLocators.depart_page_locs import DepartPageLocs as dloc
 from PageLocators.index_page_locs import IndexPageLocs as iloc
+from PageLocators.branch_resource_page_locs import BranchPageLocs as bloc
 
 
 class ResourceActionPage(BasePage):
@@ -123,3 +124,36 @@ class ResourceActionPage(BasePage):
     def msg(self):
         msg = self.get_ele_text(dloc.msg, ("获取操作提示文本", 'msg'))
         return msg
+
+    def tips(self):
+        tips = self.get_ele_text(dloc.tips, ("获取提示文本", 'tips'))
+        return tips
+    # 校区资源页面操作
+    def branch_resource_details(self):
+        self.click_element(bloc.resource_detail, ("校区资源页面-第一个资源详情按钮", 'resource_detail'))
+
+    def click_allocate_branch_belonger(self):
+        self.click_element(bloc.allocate_branch_belonger, ("校区资源页面-第一个资源分配校区归属人按钮", 'allocate_branch_belonger'))
+
+    def allocate_branch_belonger(self, update=0):
+        self.click_allocate_branch_belonger()
+        self.input_text(alloc.input_branch_belonger, 'dswen', ("校区资源页面-输入校区归属人", 'input_branch_belonger'))
+        self.click_element(alloc.selected_branch_belonger, ("校区资源页面-选择下拉列表校区归属人", 'selected_branch_belonger'))
+        if update == 1:
+            self.click_element(alloc.update_button, ("分配校区归属人页面-选择更新日期", 'update_button'))
+            self.click_element(alloc.input_date, ("分配校区归属人页面-日期输入框", 'input_date'))
+            self.click_element(alloc.update_date, ("分配校区归属人页面-更新为下一天", 'update_date'))
+        self.click_element(alloc.confirm_button, ("分配校区归属人页面-确定按钮", 'confirm_button'))
+        time.sleep(1)
+
+    def branch_modify_resource(self):
+        self.click_element(bloc.modify_resource, ("校区资源页面-修改资源", 'modify_resource'))
+
+    def branch_delete_resource(self):
+        self.click_element(bloc.delete_resource, ("校区资源页面-删除资源", 'delete_resource'))
+
+    def click_confirm_button(self):
+        self.click_element(alloc.confirm_button, ("点击确定按钮", 'confirm_button'))
+
+    def close_window(self):
+        self.click_element(alloc.close_iframe, ("关闭分配资源页面", 'close_iframe'))

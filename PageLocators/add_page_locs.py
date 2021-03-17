@@ -121,7 +121,7 @@ class AddPageLocs:
     school = (By.XPATH, "//input[@placeholder='请输入学校名称搜索']")
 
     # 就读学校 列表返回第一个
-    school_name = (By.XPATH, "//body/div[last()]//ul/li/span")
+    school_name = (By.XPATH, "//body/div[last()]//ul/li[2]/span")
 
     # 资源描述
     resource_desc = (By.XPATH, "//textarea[@placeholder='请填写资源描述,8~800中文字']")
