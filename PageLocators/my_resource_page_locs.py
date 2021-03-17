@@ -36,6 +36,12 @@ class MyResourcePageLocs:
     # 预约访（待办）统计
     appointment_count = (By.XPATH, "//div[@id='tab-appointment']/span/span")
 
+    # 校长未分配校区归属人统计
+    unallocate_branch_belonger = (By.XPATH, "//div[@class='message-tip']/span[@class='count']")
+
+    # 共x条资源
+    foot_count = (By.XPATH, "//span[@class='el-pagination__total']")
+
 
     # 资源列表-第一个资源-资源详情
     first_resource_detail = (By.XPATH, "((//table[@class='el-table__body'])[3]//i)[1]")

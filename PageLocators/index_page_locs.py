@@ -1,4 +1,7 @@
 #coding=gbk
+# 首页元素定位
+
+
 from selenium.webdriver.common.by import By
 
 

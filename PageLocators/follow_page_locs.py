@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/2/5 16:25
 # Author:dsw
-
+# 跟进页面元素定位
 from selenium.webdriver.common.by import By
 
 

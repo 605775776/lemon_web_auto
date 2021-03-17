@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/1/19 14:50
 # Author:dsw
-
+# 部门资源页面元素定位
 from selenium.webdriver.common.by import By
 
 
@@ -20,7 +20,7 @@ class DepartPageLocs:
     allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']//span/span[@class='font-bold']")
 
     # 资源未分配校区统计
-    unallocated_count = (By.XPATH, "//div[@class='message-tip']/span")
+    unallocated_branch_count = (By.XPATH, "//div[@class='message-tip']/span")
 
     # 添加资源按钮
     add_resource = (By.XPATH, "//span[text()='添加资源']")
@@ -55,6 +55,10 @@ class DepartPageLocs:
 
     # 资源列表-选中第一个资源checkbox
     checkbox_selected = (By.XPATH, "(//table[@class='el-table__body'])[2]//label[1]")
+
+    # 共x条
+    foot_count = (By.XPATH, "//span[@class='el-pagination__total']")
+
 
 # ---------------------已分配待处理页面------------------
 

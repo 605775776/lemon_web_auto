@@ -1,3 +1,5 @@
+import time
+
 from PageLocators.index_page_locs import IndexPageLocs as loc
 from Common.basepage import BasePage
 
@@ -40,10 +42,42 @@ class IndexPage(BasePage):
     def branch_resource(self):
         self.click_element(loc.branch_resource, ("首页-点击校区资源", "branch_resource"))
 
+    # 进入我的资源运营部
+    def enter_my_resource_operation_depart(self):
+        self.my_resource()
+        self.operation_depart()
+        time.sleep(1)
+
+
+    # 进入我的资源学科部
+    def enter_my_resource_subject_depart(self):
+        self.my_resource()
+        self.my_subject_depart()
+        time.sleep(1)
+
+
+    # 进入我的资源市场部
+    def enter_my_resource_market_depart(self):
+        self.my_resource()
+        self.my_market_depart()
+        time.sleep(1)
+
+    # 进入部门资源-学科部
+    def enter_depart_subject_depart(self):
+        self.depart_resource()
+        self.depart_subject_depart()
+        time.sleep(1)
+
+    # 进入部门资源-市场部
+    def enter_depart_market_depart(self):
+        self.depart_resource()
+        self.depart_market_depart()
+        time.sleep(1)
+
+    # 获取当前所在校区
     def get_current_branch(self):
         branch = self.get_ele_text(loc.branch, ("获取右上角校区", 'branch'))
         return branch
-
 
     # 教务中心
     def education_center(self):
@@ -73,10 +107,3 @@ class IndexPage(BasePage):
                 self.click_element(loc.peiying_branch, ("切换到个性化校区", 'peiying_branch'))
         except:
             raise Exception
-
-
-
-
-
-
-

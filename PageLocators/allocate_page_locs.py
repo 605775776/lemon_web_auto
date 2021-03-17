@@ -1,6 +1,8 @@
 # coding:utf-8
 # 2021/2/23 10:51
 # Author:dsw
+# 部门资源分配页面元素定位
+
 
 from selenium.webdriver.common.by import By
 

@@ -59,7 +59,7 @@ class ResourceActionPage(BasePage):
         pass
 
     # 修改资源
-    def modify(self):
+    def modify_resource(self):
         pass
 
     # 添加预约访
@@ -92,6 +92,7 @@ class ResourceActionPage(BasePage):
 # -----------------------部门资源页面-----------------------
     def allocate_branch(self, branch):
 
+        self.click_allocate_branch()
         self.input_text(alloc.input_branch, branch, ("分配校区页面-归属校区输入", 'input_branch'))
         self.click_element(alloc.selected_branch, ("分配校区页面-点击返回列表元素", 'selected_branch'))
         self.click_element(alloc.confirm_button, ("分配校区页面-确认按钮", 'confirm_button'))
@@ -118,23 +119,10 @@ class ResourceActionPage(BasePage):
         a2, b2, c2 = self.get_depart_count()
         return int(a2)-int(a1), int(b2)-int(b1), int(c2)-int(c1)
 
-    # 部门资源-学科部/市场部统计
-    def get_depart_count(self):
-        all_resource_count = self.get_ele_text(dloc.all_resource_count, ("学科部/市场部-全部资源统计", "all_resource_count"))
-        has_allocated_to_be_process_count = self.get_ele_text(dloc.allocated_to_be_process_count,
-                                                              ("学科部/市场部-已分配待处理统计", "allocated_to_be_process_count"))
-        unallocated_branch_resource_count = self.get_ele_text(dloc.unallocated_count,
-                                                              ("学科部/市场部-未分配校区资源统计", 'unallocated_count'))
+    def modify(self):
+        self.click_element(dloc.modify_resource, ("部门资源-点击修改资源", 'modify_resource'))
 
-        return all_resource_count, has_allocated_to_be_process_count, unallocated_branch_resource_count
+    def delete(self):
+        self.click_element(dloc.delete_resource, ("部门资源-点击删除资源", 'delete_resource'))
 
 
-
-
-        # wait_allocate_resource_count = int((self.get_ele_text(alloc.wait_allocate_resource_count_str, ("待分配资源数量", 'wait_allocate_resource_count_str')))[0])
-        # allocated_resource_count = int(self.get_ele_text(alloc.allocated_resource_count_str, ("已分配资源数量统计", 'allocated_resource_count_str'))[0])
-        # a = int((self.get_ele_text(alloc.selected_resource_count, ("已选资源数量统计", 'selected_resource_count')))[2: -11])
-        #
-        # print(wait_allocate_resource_count)
-        # print(allocated_resource_count)
-        # print(a)

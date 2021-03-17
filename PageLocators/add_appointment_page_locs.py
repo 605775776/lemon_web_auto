@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/1/19 16:05
 # Author:dsw
-
+# 预约访页面元素定位
 from selenium.webdriver.common.by import By
 
 class AddAppointmentPageLocs:

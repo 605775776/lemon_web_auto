@@ -1,4 +1,8 @@
 #coding=gbk
+# 添加资源页面元素定位
+
+
+
 from selenium.webdriver.common.by import By
 
 

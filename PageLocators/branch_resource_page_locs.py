@@ -1,7 +1,7 @@
 # coding:utf-8
 # 2021/2/24 14:14
 # Author:dsw
-
+# 校区资源页面元素定位
 from selenium.webdriver.common.by import By
 
 

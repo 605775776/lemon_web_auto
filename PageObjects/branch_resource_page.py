@@ -5,4 +5,5 @@
 from Common.basepage import BasePage
 
 class BranchPage(BasePage):
-    pass
+
+

@@ -21,22 +21,22 @@ import ddt
 class test_add_resource(unittest.TestCase):
 
     @classmethod
-    def setUpClass(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get(GD.login_url)
-        self.driver.maximize_window()
-        LoginPage(self.driver).login(*lds.success)
-        IndexPage(self.driver).switch_branch(1)
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome()
+        cls.driver.get(GD.login_url)
+        cls.driver.maximize_window()
+        LoginPage(cls.driver).login(*lds.success)
+        IndexPage(cls.driver).switch_branch(1)
         time.sleep(2)
-        IndexPage(self.driver).entrance()
-        IndexPage(self.driver).my_resource()
-        IndexPage(self.driver).my_subject_depart()
+        IndexPage(cls.driver).entrance()
+        IndexPage(cls.driver).my_resource()
+        IndexPage(cls.driver).my_subject_depart()
 
     @classmethod
-    def tearDownClass(self):
-        self.driver.quit()
+    def tearDownClass(cls):
+        cls.driver.quit()
 
-    # 我的资源-学科部添加资源 统计资源数据用例
+    # 我的资源-学科部添加资源 添加资源及统计资源数据用例
     def test_01add_resource(self):
         time.sleep(2)
         # 获取当前统计数据
@@ -52,16 +52,15 @@ class test_add_resource(unittest.TestCase):
         (a2, b2, c2, d2, e2) = MyResourcePage(self.driver).get_my_depart_count()
 
         # 断言
-        self.assertEqual(int(a2) - int(a1), 1)
-        self.assertEqual(int(b2) - int(b1), 1)
-        self.assertEqual(int(c2) - int(c1), 1)
-        self.assertEqual(int(d2) - int(d1), 0)
-        self.assertEqual(int(e2) - int(e1), 0)
+        self.assertEqual(a2 - a1, 1)
+        self.assertEqual(b2 - b1, 1)
+        self.assertEqual(c2 - c1, 1)
+        self.assertEqual(d2 - d1, 0)
+        self.assertEqual(e2 - e1, 0)
 
     #     # 我的资源-学科部添加资源 分配校区用例
     def test_allocate_branch(self):
         branch = IndexPage(self.driver).get_current_branch()
-        ResourceActionPage(self.driver).click_allocate_branch()
         ResourceActionPage(self.driver).allocate_branch(branch)
         time.sleep(2)
         msg_success = self.driver.find_element_by_xpath("//p[@class='el-message__content']").text
@@ -85,11 +84,11 @@ class test_add_resource(unittest.TestCase):
         (a2, b2, c2, d2, e2) = MyResourcePage(self.driver).get_my_depart_count()
 
         # 断言
-        self.assertEqual(int(a2) - int(a1), 0)
-        self.assertEqual(int(b2) - int(b1), 0)
-        self.assertEqual(int(c2) - int(c1), 0)
-        self.assertEqual(int(d2) - int(d1), 0)
-        self.assertEqual(int(e2) - int(e1), 1)
+        self.assertEqual(a2 - a1, 0)
+        self.assertEqual(b2 - b1, 0)
+        self.assertEqual(c2 - c1, 0)
+        self.assertEqual(d2 - d1, 0)
+        self.assertEqual(e2 - e1, 1)
 
     # 学科部分配到校区的资源进行分配校区归属人用例
     def test_allocate_branch_belonger(self):
