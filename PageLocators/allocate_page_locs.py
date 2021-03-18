@@ -55,3 +55,10 @@ class AllocatePageLocs:
     # 右上角关闭弹窗
     close_iframe = (By.XPATH, "//button[@aria-label='Close']")
 
+    # 全部radio
+    radio_1 = (By.XPATH, "(//span[@class='el-radio__label'])[1]")
+    # 未分配校区归属人radio
+    radio_2 = (By.XPATH, "(//span[@class='el-radio__label'])[2]")
+    # 已分配校区归属人radio
+    radio_3 = (By.XPATH, "(//span[@class='el-radio__label'])[3]")
+

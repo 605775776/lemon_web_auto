@@ -90,6 +90,19 @@ class ResourceActionPage(BasePage):
         self.click_element(aloc.confirm, ("预约访页面-确定按钮", 'confirm'))
 
     # -----------------------部门资源页面-----------------------
+    def click_allocate_depart_belonger(self):
+        self.click_element(dloc.allocate_depart_belonger, ("分配部门归属人页面", 'allocate_depart_belonger'))
+
+    def allocate_depart_belonger(self, depart_belonger):
+        self.click_allocate_depart_belonger()
+        self.input_text(alloc.input_depart_belonger, depart_belonger, ("分配部门归属人页面-输入部门归属人", 'input_depart_belonger'))
+        self.click_element(alloc.selected_depart_belonger, ("选择列表中的部门归属人", 'selected_depart_belonger'))
+        self.click_element(alloc.confirm_button, ("分配部门归属人页面-确定按钮", 'confirm_button'))
+
+
+
+
+
     def allocate_branch(self, branch):
 
         self.click_allocate_branch()
@@ -135,9 +148,9 @@ class ResourceActionPage(BasePage):
     def click_allocate_branch_belonger(self):
         self.click_element(bloc.allocate_branch_belonger, ("校区资源页面-第一个资源分配校区归属人按钮", 'allocate_branch_belonger'))
 
-    def allocate_branch_belonger(self, update=0):
+    def allocate_branch_belonger(self, branch_belonger, update=0):
         self.click_allocate_branch_belonger()
-        self.input_text(alloc.input_branch_belonger, 'dswen', ("校区资源页面-输入校区归属人", 'input_branch_belonger'))
+        self.input_text(alloc.input_branch_belonger, branch_belonger, ("校区资源页面-输入校区归属人", 'input_branch_belonger'))
         self.click_element(alloc.selected_branch_belonger, ("校区资源页面-选择下拉列表校区归属人", 'selected_branch_belonger'))
         if update == 1:
             self.click_element(alloc.update_button, ("分配校区归属人页面-选择更新日期", 'update_button'))

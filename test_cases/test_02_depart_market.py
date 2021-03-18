@@ -17,7 +17,7 @@ import ddt
 
 
 @ddt.ddt
-class test_add_resource(unittest.TestCase):
+class test_add_and_allocate_resource(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -35,12 +35,10 @@ class test_add_resource(unittest.TestCase):
         cls.driver.quit()
 
     # 部门资源-添加资源及资源数量统计用例
-    def test_add_resource(self):
+    def test_01_add_resource(self):
         # 我的资源-市场部资源数量统计
         IndexPage(self.driver).enter_my_resource_market_depart()
         (m1, m2, m3, m4, m5, m6, m7) = MyResourcePage(self.driver).get_my_depart_count()
-
-        print(m1, m2, m3, m4, m5, m6, m7)
         self.assertEqual(m1, m7)
 
         IndexPage(self.driver).enter_depart_market_depart()
@@ -65,10 +63,20 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(c2 - c1, 1)
         self.assertEqual(d2 - d1, 1)
 
+        # 已分配/未分配资源数量统计及断言
+        DepartResourcePage(self.driver).switch_radio_to_unallocate()
+        p1, p2, p3, p4 = DepartResourcePage(self.driver).get_depart_count()
+        print(p1, p2, p3, p4)
+        self.assertEqual(p3, p4)
+        DepartResourcePage(self.driver).switch_radio_to_allocated()
+        p1, p2, p3, p4 = DepartResourcePage(self.driver).get_depart_count()
+        print(p1, p2, p3, p4)
+        self.assertEqual(p1, p3 + p4)
+        DepartResourcePage(self.driver).switch_radio_to_all()
+
         # 我的资源-市场部资源数量统计
         IndexPage(self.driver).my_market_depart()
         (n1, n2, n3, n4, n5, n6, n7) = MyResourcePage(self.driver).get_my_depart_count()
-        print(n1, n2, n3, n4, n5, n6, n7)
 
         # 部门资源添加资源后 我的资源市场部资源数量断言
         self.assertEqual(n1 - m1, 1)
@@ -79,8 +87,48 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(n6 - m6, 0)
         self.assertEqual(n7 - m7, 1)
 
+
+
+    # 将新资源重新分配部门归属人 再分配回来
+    def test_02_allocate_depart_belonger(self):
+
+        # # 我的资源市场部统计
+        (m1, m2, m3, m4, m5, m6, m7) = MyResourcePage(self.driver).get_my_depart_count()
+        # 跳转到部门资源市场部
+        IndexPage(self.driver).depart_market_depart()
+
+        # 分配部门归属人 空白断言
+        ResourceActionPage(self.driver).click_allocate_depart_belonger()
+        ResourceActionPage(self.driver).click_confirm_button()
+        tips = ResourceActionPage(self.driver).tips()
+        self.assertEqual(tips, "请选择部门归属人")
+        ResourceActionPage(self.driver).close_window()
+
+        ResourceActionPage(self.driver).allocate_depart_belonger('wjq')
+
+        # 跳转到我的资源市场部统计及断言
+        IndexPage(self.driver).my_market_depart()
+        (n1, n2, n3, n4, n5, n6, n7) = MyResourcePage(self.driver).get_my_depart_count()
+
+        print(m1, m2, m3, m4, m5, m6, m7)
+        print(n1, n2, n3, n4, n5, n6, n7)
+        self.assertEqual(n1 - m1, -1)
+        self.assertEqual(n2 - m2, -1)
+        self.assertEqual(n3 - m3, -1)
+        self.assertEqual(n4 - m4, 0)
+        self.assertEqual(n5 - m5, 0)
+        self.assertEqual(n6 - m6, 0)
+        self.assertEqual(n7 - m7, -1)
+
+        # 跳转到部门资源市场部 重新分配给我
+        IndexPage(self.driver).depart_market_depart()
+        ResourceActionPage(self.driver).allocate_depart_belonger('dswen')
+
     # 部门资源-分配校区及分配后被禁止操作用例
-    def test_allocate_branch(self):
+    def test_03_allocate_branch(self):
+
+        # 进入我的资源-市场部
+        IndexPage(self.driver).my_market_depart()
         # 获取当前校区
         branch = IndexPage(self.driver).get_current_branch()
         (m1, m2, m3, m4, m5, m6, m7) = MyResourcePage(self.driver).get_my_depart_count()
@@ -95,7 +143,7 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(p1, p4)
 
         IndexPage(self.driver).depart_market_depart()
-        # 分配资源
+        # 分配校区
         ResourceActionPage(self.driver).allocate_branch(branch)
         time.sleep(2)
 
@@ -106,6 +154,16 @@ class test_add_resource(unittest.TestCase):
         # 分配后 部门资源-市场部统计
         time.sleep(2)
         (a2, b2, c2, d2) = DepartResourcePage(self.driver).get_depart_count()
+        
+        DepartResourcePage(self.driver).switch_radio_to_unallocate()
+        k1, k2, k3, k4 = DepartResourcePage(self.driver).get_depart_count()
+        print(k1, k2, k3, k4)
+        self.assertEqual(k3, k4)
+        DepartResourcePage(self.driver).switch_radio_to_allocated()
+        k1, k2, k3, k4 = DepartResourcePage(self.driver).get_depart_count()
+        print(k1, k2, k3, k4)
+        self.assertEqual(k1, k3 + k4)
+        DepartResourcePage(self.driver).switch_radio_to_all()
 
         # 分配前后，部门资源-市场部统计
         self.assertEqual(a2, a1)
@@ -155,8 +213,8 @@ class test_add_resource(unittest.TestCase):
         self.assertEqual(q4 - p4, 1)
         self.assertEqual(q1, q4)
 
-    # 给市场部分给校区的资源分配校区归属人
-    def test_allocate_branch_belonger(self):
+    # 将市场部分给校区的资源分配校区归属人
+    def test_04_allocate_branch_belonger(self):
         # 分配校区归属人前 校区资源统计
         a1, b1, c1, d1 = BranchPage(self.driver).get_branch_resource_count()
         print(a1, b1, c1, d1)
@@ -187,11 +245,10 @@ class test_add_resource(unittest.TestCase):
         ResourceActionPage(self.driver).click_allocate_branch_belonger()
         ResourceActionPage(self.driver).click_confirm_button()
         tips = ResourceActionPage(self.driver).tips()
-        print(tips)
         self.assertEqual('请选择校区归属人', tips)
 
         ResourceActionPage(self.driver).close_window()
-        ResourceActionPage(self.driver).allocate_branch_belonger()
+        ResourceActionPage(self.driver).allocate_branch_belonger('dswen')
         allocate_msg = ResourceActionPage(self.driver).msg()
         self.assertEqual(allocate_msg, "分配成功!")
 
@@ -240,7 +297,7 @@ class test_add_resource(unittest.TestCase):
 
         # 分配校区归属人更新最迟回访时间
         IndexPage(self.driver).branch_resource()
-        ResourceActionPage(self.driver).allocate_branch_belonger(1)
+        ResourceActionPage(self.driver).allocate_branch_belonger('dswen', 1)
         allocate_msg = ResourceActionPage(self.driver).msg()
         self.assertEqual(allocate_msg, "分配成功!")
 

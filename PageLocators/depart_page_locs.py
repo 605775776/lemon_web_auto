@@ -17,7 +17,7 @@ class DepartPageLocs:
     all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
 
     # 已分配待处理统计
-    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']//span/span[@class='font-bold']")
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocatedToBranch']//span[@class='font-bold']")
 
     # 资源未分配校区统计
     unallocated_branch_count = (By.XPATH, "//div[@class='message-tip']/span")

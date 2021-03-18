@@ -22,10 +22,10 @@ class MyResourcePageLocs:
     reset_button = (By.XPATH, "//button/span[text()='重置']")
 
     # 全部资源统计
-    all_resource_count = (By.XPATH, "//div[@id='tab-total']/span/span")
+    all_resource_count = (By.XPATH, "//div[@id='tab-total']//span[@class='font-bold']")
 
     # 新分配待处理统计
-    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocation']/span/span")
+    allocated_to_be_process_count = (By.XPATH, "//div[@id='tab-newAllocation']//span[@class='font-bold']")
 
     # 我的待跟进统计
     my_following_count = (By.XPATH, "//div[@id='tab-overtime']/span/span")

@@ -27,12 +27,7 @@ class BranchPageLocs:
 
     # 右下角共x条资源统计
     foot_count = (By.XPATH, "//span[@class='el-pagination__total']")
-    # 全部radio
-    radio_1 = (By.XPATH, "(//span[@class='el-radio__label'])[1]")
-    # 未分配校区归属人radio
-    radio_2 = (By.XPATH, "(//span[@class='el-radio__label'])[2]")
-    # 已分配校区归属人radio
-    radio_3 = (By.XPATH, "(//span[@class='el-radio__label'])[3]")
+
 
     # 添加资源按钮
     add_resource = (By.XPATH, "//button/span[text()='添加资源']")
