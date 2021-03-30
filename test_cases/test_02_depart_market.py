@@ -165,7 +165,7 @@ class test_add_and_allocate_resource(unittest.TestCase):
         self.assertEqual(k1, k3 + k4)
         DepartResourcePage(self.driver).switch_radio_to_all()
 
-        # 分配前后，部门资源-市场部统计
+        # 分配前后，部门资源-市场部数量断言
         self.assertEqual(a2, a1)
         self.assertEqual(b2 - b1, 1)
         self.assertEqual(c2 - c1, -1)
